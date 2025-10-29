@@ -1,0 +1,94 @@
+[
+  {
+    "symbol": "BABA.US",
+    "action": "buy",
+    "quantity": 160,
+    "price": 179.67,
+    "order_id": "1168205475603308544",
+    "timestamp": "2025-10-29T23:11:29.658739",
+    "status": "submitted",
+    "closed": false
+  },
+  {
+    "symbol": "MU.US",
+    "action": "sell",
+    "quantity": 215,
+    "price": 230.67,
+    "order_id": "1168206388015423488",
+    "timestamp": "2025-10-29T23:15:07.190720",
+    "status": "submitted",
+    "profit": 0,
+    "profit_percent": 0,
+    "matched_buys": []
+  },
+  {
+    "symbol": "NVDA.US",
+    "action": "buy",
+    "quantity": 239,
+    "price": 208.376,
+    "order_id": "1168207320551809024",
+    "timestamp": "2025-10-29T23:18:49.518416",
+    "status": "submitted",
+    "closed": true
+  },
+  {
+    "symbol": "NVDA.US",
+    "action": "sell",
+    "quantity": 239,
+    "price": 208.71,
+    "order_id": "1168208921731543040",
+    "timestamp": "2025-10-29T23:25:07.063068",
+    "status": "submitted",
+    "profit": 79.82600000000093,
+    "profit_percent": 0.1602871731869332,
+    "matched_buys": [
+      {
+        "buy_order_id": "1168207320551809024",
+        "buy_price": 208.376,
+        "match_quantity": 239,
+        "profit": 79.82600000000093,
+        "profit_percent": 0.1602871731869332
+      }
+    ]
+  },
+  {
+    "symbol": "NVDA.US",
+    "action": "buy",
+    "quantity": 239,
+    "price": 208.94,
+    "order_id": "1168210084073857024",
+    "timestamp": "2025-10-29T23:29:44.192724",
+    "status": "submitted",
+    "closed": true
+  },
+  {
+    "symbol": "MU.US",
+    "action": "buy",
+    "quantity": 217,
+    "price": 230.14,
+    "order_id": "1168210770241019904",
+    "timestamp": "2025-10-29T23:32:27.768632",
+    "status": "submitted",
+    "closed": false
+  },
+  {
+    "symbol": "NVDA.US",
+    "action": "sell",
+    "quantity": 239,
+    "price": 208.83,
+    "order_id": "1168211814488485888",
+    "timestamp": "2025-10-29T23:36:36.730790",
+    "status": "submitted",
+    "profit": -26.289999999993597,
+    "profit_percent": -0.05264669283046483,
+    "matched_buys": [
+      {
+        "buy_order_id": "1168210084073857024",
+        "buy_price": 208.94,
+        "match_quantity": 239,
+        "profit": -26.289999999993597,
+        "profit_percent": -0.05264669283046483
+      }
+    ]
+  }
+]
