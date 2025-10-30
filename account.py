@@ -27,8 +27,54 @@ class AccountInfoFormatter:
         """
         self.load_config(config_file)
         self.ctx = self.create_trade_context()
-        # 模拟昨日净资产（实际应用中可从历史数据或缓存获取）
-        self.yesterday_net_assets = 805000.0  # 示例值
+        # 从日志文件读取昨日净资产，如果文件不存在或没有记录，则使用默认值
+        self.yesterday_net_assets = self._get_yesterday_net_assets()
+    
+    def _get_yesterday_net_assets(self):
+        """从历史日志文件获取昨日净资产
+        
+        Returns:
+            float: 昨日净资产值
+        """
+        log_file = "account_daily_log.csv"
+        default_value = 805000.0  # 默认值
+        
+        if not os.path.isfile(log_file):
+            print(f"历史日志文件 {log_file} 不存在，使用默认昨日净资产值")
+            return default_value
+        
+        try:
+            with open(log_file, 'r', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                # 获取所有记录
+                records = list(reader)
+                
+                if not records:
+                    print("历史日志文件为空，使用默认昨日净资产值")
+                    return default_value
+                
+                # 按时间戳排序，获取最新的记录
+                def parse_timestamp(timestamp_str):
+                    # 支持多种日期格式
+                    for fmt in ['%Y-%m-%d %H:%M:%S', '%Y/%m/%d %H:%M']:
+                        try:
+                            return datetime.strptime(timestamp_str, fmt)
+                        except ValueError:
+                            continue
+                    # 如果都解析失败，返回一个很早的时间
+                    return datetime.min
+                
+                records.sort(key=lambda x: parse_timestamp(x['时间戳']), reverse=True)
+                
+                # 获取最新记录的净资产作为昨日净资产
+                latest_record = records[0]
+                yesterday_assets = float(latest_record['净资产'])
+                print(f"从历史日志获取昨日净资产: {yesterday_assets}")
+                return yesterday_assets
+                
+        except Exception as e:
+            print(f"读取历史日志文件失败: {e}，使用默认昨日净资产值")
+            return default_value
     
     def load_config(self, config_file):
         """加载配置文件
@@ -78,15 +124,31 @@ class AccountInfoFormatter:
             current_net_assets (float): 当前净资产
             
         Returns:
-            dict: 包含收益率和盈亏金额的字典
+            dict: 包含详细性能指标的字典
         """
         daily_profit = current_net_assets - self.yesterday_net_assets
         daily_return_rate = (daily_profit / self.yesterday_net_assets) * 100
         
+        # 确定盈亏状态
+        profit_status = "盈利" if daily_profit > 0 else "亏损" if daily_profit < 0 else "持平"
+        
+        # 计算相对表现级别（简单分类）
+        if abs(daily_return_rate) < 0.5:
+            performance_level = "轻微波动"
+        elif abs(daily_return_rate) < 1.0:
+            performance_level = "小幅波动"
+        elif abs(daily_return_rate) < 3.0:
+            performance_level = "中幅波动"
+        else:
+            performance_level = "大幅波动"
+        
         return {
             'daily_profit': daily_profit,
             'daily_return_rate': daily_return_rate,
-            'yesterday_net_assets': self.yesterday_net_assets
+            'yesterday_net_assets': self.yesterday_net_assets,
+            'current_net_assets': current_net_assets,
+            'profit_status': profit_status,
+            'performance_level': performance_level
         }
     
     def format_risk_level(self, risk_level):
@@ -159,11 +221,36 @@ class AccountInfoFormatter:
         print(f"现金总额: {float(account_data.total_cash):,.2f} {account_data.currency}")
         print(f"净资产: {float(account_data.net_assets):,.2f} {account_data.currency}")
         
-        # 当日表现（新增）
+        # 当日表现（增强版）
         print(f"\n【当日表现】")
         print(f"昨日净资产: {performance['yesterday_net_assets']:,.2f} {account_data.currency}")
-        print(f"当日盈亏: {performance['daily_profit']:,.2f} {account_data.currency}")
-        print(f"当日收益率: {performance['daily_return_rate']:.2f}%")
+        print(f"当前净资产: {performance['current_net_assets']:,.2f} {account_data.currency}")
+        
+        # 带颜色的盈亏显示
+        daily_profit = performance['daily_profit']
+        profit_str = f"{daily_profit:,.2f} {account_data.currency}"
+        if daily_profit > 0:
+            profit_display = f"当日盈亏: +{profit_str} (↑)"
+        elif daily_profit < 0:
+            profit_display = f"当日盈亏: {profit_str} (↓)"
+        else:
+            profit_display = f"当日盈亏: {profit_str} (→)"
+        print(profit_display)
+        
+        # 收益率显示
+        daily_return_rate = performance['daily_return_rate']
+        return_str = f"{daily_return_rate:.2f}%"
+        if daily_return_rate > 0:
+            return_display = f"当日收益率: +{return_str} (↑)"
+        elif daily_return_rate < 0:
+            return_display = f"当日收益率: {return_str} (↓)"
+        else:
+            return_display = f"当日收益率: {return_str} (→)"
+        print(return_display)
+        
+        # 盈亏状态和波动级别
+        print(f"盈亏状态: {performance['profit_status']}")
+        print(f"波动级别: {performance['performance_level']}")
         
         # 融资信息
         print(f"\n【融资信息】")
@@ -175,7 +262,11 @@ class AccountInfoFormatter:
         print(f"初始保证金: {float(account_data.init_margin):,.2f} {account_data.currency}")
         print(f"维持保证金: {float(account_data.maintenance_margin):,.2f} {account_data.currency}")
         print(f"购买力: {float(account_data.buy_power):,.2f} {account_data.currency}")
-        print(f"风险等级: {self.format_risk_level(account_data.risk_level)}")
+        
+        # 风险等级显示（增强）
+        risk_level = self.format_risk_level(account_data.risk_level)
+        risk_color = "🟢" if risk_level == "安全" else "🟡" if risk_level == "正常" else "🟠" if risk_level == "预警" else "🔴"
+        print(f"风险等级: {risk_color} {risk_level}")
         
         # 现金详情
         print(f"\n【现金详情】")
