@@ -1,0 +1,32 @@
+# 股票配置文件
+stocks:
+  - symbol: BABA.US
+  - symbol: INTC.US
+  - symbol: AMD.US
+  - symbol: TSLA.US
+  - symbol: NVDA.US
+  - symbol: NOK.US
+  - symbol: MU.US
+  - symbol: AAPL.US
+  - symbol: MSFT.US
+  - symbol: GOOG.US
+
+# LongPort API配置
+longport:
+  app_key: ""
+  app_secret: ""
+  access_token: ""
+# Deepseek API配置
+deepseek:
+  api_key: ""
+  api_url: "https://api.deepseek.com/v1/chat/completions"
+
+# 应用配置
+app:
+  check_interval: 30  # 检查间隔（秒）
+  log_level: "INFO"
+  max_position: 100000  # 最大持仓金额
+  fallback_to_simulated: true  # 真实下单失败时是否回退到模拟下单
+
+# 交易相关配置
+fund_limit: 0  # 交易资金限额（USD），0表示不限制
