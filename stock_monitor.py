@@ -21,6 +21,8 @@ import json                 # 用于处理JSON数据
 import os                   # 用于操作系统相关功能
 import re                   # 用于正则表达式匹配
 from datetime import datetime  # 用于处理日期时间
+import concurrent.futures   # 用于并行处理
+import threading            # 用于线程同步
 
 # 导入LongPort OpenAPI相关模块
 from longport.openapi import QuoteContext, Config, TradeContext, Market, OrderType, OrderSide, TimeInForceType
@@ -76,6 +78,12 @@ class StockMonitor:
         self.transactions = []                  # 所有交易记录
         self.open_positions = defaultdict(list) # 当前未平仓的持仓，按股票代码分组
         self.transaction_history_file = "transaction_history.json"  # 交易历史保存文件
+        # 线程锁，用于保护共享资源
+        self.transaction_lock = threading.Lock()  # 保护交易记录
+        self.position_lock = threading.Lock()     # 保护持仓信息
+        self.memory_lock = threading.Lock()       # 保护决策记忆
+        # 并行处理配置
+        self.max_workers = min(10, len(self.config.get('stocks', [])) + 1)  # 最大线程数，不超过10
         
         self.initialize_stock_data()            # 初始化股票数据
         
@@ -562,14 +570,71 @@ class StockMonitor:
             'price': price                                                # 决策价格
         }
         
-        # 保存到记忆中，限制记忆长度为20条
-        if symbol in self.decision_memory:
-            self.decision_memory[symbol].append(decision)
-            # 保持记忆长度不超过20条
-            if len(self.decision_memory[symbol]) > 20:
-                self.decision_memory[symbol] = self.decision_memory[symbol][-20:]
+        # 使用线程锁保护共享资源
+        with self.memory_lock:
+            # 保存到记忆中，限制记忆长度为20条
+            if symbol in self.decision_memory:
+                self.decision_memory[symbol].append(decision)
+                # 保持记忆长度不超过20条
+                if len(self.decision_memory[symbol]) > 20:
+                    self.decision_memory[symbol] = self.decision_memory[symbol][-20:]
+            else:
+                self.decision_memory[symbol] = [decision]
         
         logger.debug(f"保存决策到历史记忆: {symbol} - {decision}")
+
+    def get_last_buy_price_info(self, symbol, current_price):
+        """获取最近一次买入价格信息并计算与现价的差距
+        
+        Args:
+            symbol (str): 股票代码
+            current_price (float): 当前价格
+            
+        Returns:
+            str: 格式化的最近买入价格信息和差距分析
+        """
+        # 使用线程锁保护共享资源
+        with self.transaction_lock:
+            # 从交易历史中筛选该股票的所有买入交易
+            buy_transactions = [t for t in self.transactions 
+                               if t['symbol'] == symbol and t['action'] == 'buy']
+        
+        # 如果没有买入交易记录
+        if not buy_transactions:
+            return "- 最近买入价格: 无交易记录\n"
+        
+        # 按时间戳排序，获取最近的买入交易
+        buy_transactions.sort(key=lambda x: x['timestamp'], reverse=True)
+        last_buy = buy_transactions[0]
+        
+        last_buy_price = last_buy['price']
+        last_buy_date = last_buy['timestamp'][:10]  # 提取日期部分
+        
+        # 计算价格差距和百分比
+        price_diff = current_price - last_buy_price
+        price_diff_percent = (price_diff / last_buy_price) * 100 if last_buy_price > 0 else 0
+        
+        # 根据差距大小生成操作建议参考
+        suggestion = ""
+        if price_diff_percent > 10:
+            suggestion = "- 操作参考: 当前价格大幅高于最近买入价，考虑止盈或持有\n"
+        elif price_diff_percent > 5:
+            suggestion = "- 操作参考: 当前价格高于最近买入价，可考虑部分止盈\n"
+        elif price_diff_percent > 0:
+            suggestion = "- 操作参考: 当前价格略高于最近买入价，可继续持有\n"
+        elif price_diff_percent > -5:
+            suggestion = "- 操作参考: 当前价格略低于最近买入价，可考虑适当加仓\n"
+        elif price_diff_percent > -10:
+            suggestion = "- 操作参考: 当前价格低于最近买入价，需要谨慎考虑加仓时机\n"
+        else:
+            suggestion = "- 操作参考: 当前价格大幅低于最近买入价，建议观望或小额试探性加仓\n"
+        
+        # 构建完整信息
+        info = f"- 最近买入价格: {last_buy_price:.2f} (日期: {last_buy_date})\n"
+        info += f"- 价格差距: {price_diff:+.2f} ({price_diff_percent:+.2f}%)\n"
+        info += suggestion
+        
+        return info
 
     def analyze_with_deepseek(self, stock_data, quote):
         """使用Deepseek进行决策分析，返回明确的交易指令
@@ -680,6 +745,12 @@ class StockMonitor:
                     index_info += f"- 5日涨跌幅: {stock_indexes.five_day_change_rate:.2f}%\n"
                 if hasattr(stock_indexes, 'ten_day_change_rate') and stock_indexes.ten_day_change_rate is not None:
                     index_info += f"- 10日涨跌幅: {stock_indexes.ten_day_change_rate:.2f}%\n"
+                # 添加5分钟涨跌幅指标
+                if hasattr(stock_indexes, 'five_min_change_rate') and stock_indexes.five_min_change_rate is not None:
+                    index_info += f"- 5分钟涨跌幅: {stock_indexes.five_min_change_rate:.2f}%\n"
+                # 添加成交量指标
+                if hasattr(stock_indexes, 'volume') and stock_indexes.volume is not None:
+                    index_info += f"- 成交量: {stock_indexes.volume}\n"
                 if hasattr(stock_indexes, 'turnover_rate') and stock_indexes.turnover_rate is not None:
                     index_info += f"- 换手率: {stock_indexes.turnover_rate:.2f}%\n"
                 if hasattr(stock_indexes, 'volume_ratio') and stock_indexes.volume_ratio is not None:
@@ -702,6 +773,9 @@ class StockMonitor:
                     # 计算建议使用的最大金额（例如：资金限额的30%用于单笔交易）
                     max_single_transaction = account_balance['fund_limit'] * 0.3
                     fund_info += f"- 单笔交易建议最大金额: {max_single_transaction:.2f}\n"
+            # 获取最近一次买入价格信息和差距分析
+            last_buy_info = self.get_last_buy_price_info(quote['symbol'], quote['last_price'])
+            
             # {index_info}
             prompt = f"""请基于以下股票数据做出交易决策（买入/卖出/持有）：
             股票代码: {quote['symbol']}
@@ -714,13 +788,15 @@ class StockMonitor:
             {f'市场温度: {market_temperature}' if market_temperature else ''}
             {index_info}
             {fund_info}
+            {last_buy_info}
             {history_info}
+            
             
             请按照以下格式输出：
             指令: [买入/卖出/持有]
-            理由: [详细的决策理由，充分考虑基本面指标(如市盈率、市净率)、技术面指标(如涨跌幅、换手率)、资金流向、市场温度以及历史决策的连续性]
+            理由: [详细的决策理由，充分考虑基本面指标(如市盈率、市净率)、技术面指标(如涨跌幅、换手率)、资金流向、最近买入价和现价、5分钟涨跌幅、市场温度以及历史决策的连续性]
             数量: [建议交易的股数，基于当前市场情况、风险考量、股票估值水平和可用资金限制。买入时请确保不超过资金限额。]"""
-            
+
             headers = {
                 'Content-Type': 'application/json',
                 'Authorization': f'Bearer {api_key}'
@@ -729,10 +805,10 @@ class StockMonitor:
             data = {
                 "model": "deepseek-chat",
                 "messages": [
-                    {"role": "system", "content": "你是一个顶尖的量化交易专家，精通算法交易、统计套利和机器学习交易策略。基于提供的全面数据进行严格的量化分析，包括：\n1. 技术指标分析：RSI、MACD、布林带、成交量变化率、波动率等\n2. 统计模型应用：价格动量、均值回归、波动率突破策略\n3. 风险管理：严格执行单笔交易资金限制(不超过资金限额的10%)、止损策略(单笔最大亏损不超过入场价格的2%)\n4. 多因子评估：市场温度、行业相对强度、资金流向、量价关系\n5. 时间序列分析：日内波动模式识别、短期趋势预测\n\n请在3%盈利时考虑卖出，买入决策必须严格遵守资金限制。使用量化语言思考，基于数据而非情绪做出决策。输出必须是'买入'、'卖出'或'持有'中的一个，并提供量化角度的详细理由。"},
+                    {"role": "system", "content": "你是一个顶尖的量化交易专家，精通算法交易、统计套利和机器学习交易策略。基于提供的全面数据进行严格的量化分析，包括：\n1. 技术指标分析：RSI、MACD、布林带、成交量变化率、波动率等\n2. 统计模型应用：价格动量、均值回归、波动率突破策略\n3. 风险管理：严格执行单笔交易资金限制(不超过资金限额的10%)、止损策略(单笔最大亏损不超过最近买入价格的2%)\n4. 多因子评估：市场温度、行业相对强度、资金流向、量价关系\n5. 时间序列分析：日内波动模式识别、短期趋势预测\n\n请在当前价格大于最近买入价5%时考虑卖出，买入决策必须严格遵守资金限制，在5分钟跌幅大于5%的时候买入。使用量化语言思考，基于数据而非情绪做出决策。输出必须是'买入'、'卖出'或'持有'中的一个，并提供量化角度的详细理由。"},
                     {"role": "user", "content": prompt}
                 ],
-                "temperature": 0.3
+                "temperature": 1
             }
             
             response = requests.post(api_url, headers=headers, json=data)
@@ -784,6 +860,8 @@ class StockMonitor:
                 'reason': "API调用失败，默认持有",
                 'quantity': 0
             }
+    
+    
     
     def place_order(self, symbol, action, quantity, price):
         """使用LongPort API进行真实下单交易
@@ -876,31 +954,36 @@ class StockMonitor:
             
             # 记录交易并计算利润（如果是卖出操作）
             if action == 'sell':
-                profit_details = self.calculate_profit(order_info)
-                order_info['profit'] = profit_details['total_profit']
-                order_info['profit_percent'] = profit_details['total_profit_percent']
-                order_info['matched_buys'] = profit_details['matched_buys']
+                with self.transaction_lock, self.position_lock:
+                    profit_details = self.calculate_profit(order_info)
+                    order_info['profit'] = profit_details['total_profit']
+                    order_info['profit_percent'] = profit_details['total_profit_percent']
+                    order_info['matched_buys'] = profit_details['matched_buys']
                 
                 # 记录利润信息
                 logger.info(f"卖出 {symbol} 获利: {order_info['profit']:.2f} ({order_info['profit_percent']:.2f}%)")
             else:  # 买入操作，添加到未平仓记录
-                self.open_positions[symbol].append(order_info)
-                order_info['closed'] = False  # 标记为未平仓
+                with self.position_lock:
+                    self.open_positions[symbol].append(order_info)
+                    order_info['closed'] = False  # 标记为未平仓
             
-            # 添加到交易历史
-            self.transactions.append(order_info)
-            # 保存交易历史
-            self.save_transactions()
+            # 添加到交易历史并保存
+            with self.transaction_lock:
+                self.transactions.append(order_info)
+                # 保存交易历史
+                self.save_transactions()
             
             logger.info(f"下单成功: {order_info}")
             
             # 更新持仓信息
             if action == 'buy':
-                self.stock_data[symbol]['position'] += quantity * price
+                with self.position_lock:
+                    self.stock_data[symbol]['position'] += quantity * price
             elif action == 'sell':
-                self.stock_data[symbol]['position'] -= quantity * price
-                if self.stock_data[symbol]['position'] < 0:
-                    self.stock_data[symbol]['position'] = 0
+                with self.position_lock:
+                    self.stock_data[symbol]['position'] -= quantity * price
+                    if self.stock_data[symbol]['position'] < 0:
+                        self.stock_data[symbol]['position'] = 0
             
             return order_info
         except Exception as e:
@@ -925,21 +1008,24 @@ class StockMonitor:
                 
                 # 记录交易并计算利润（如果是卖出操作）
                 if action == 'sell':
-                    profit_details = self.calculate_profit(order_info)
-                    order_info['profit'] = profit_details['total_profit']
-                    order_info['profit_percent'] = profit_details['total_profit_percent']
-                    order_info['matched_buys'] = profit_details['matched_buys']
+                    with self.transaction_lock, self.position_lock:
+                        profit_details = self.calculate_profit(order_info)
+                        order_info['profit'] = profit_details['total_profit']
+                        order_info['profit_percent'] = profit_details['total_profit_percent']
+                        order_info['matched_buys'] = profit_details['matched_buys']
                     
                     # 记录利润信息
                     logger.info(f"模拟卖出 {symbol} 获利: {order_info['profit']:.2f} ({order_info['profit_percent']:.2f}%)")
                 else:  # 买入操作，添加到未平仓记录
-                    self.open_positions[symbol].append(order_info)
-                    order_info['closed'] = False  # 标记为未平仓
-                
+                    with self.position_lock:
+                        self.open_positions[symbol].append(order_info)
+                        order_info['closed'] = False  # 标记为未平仓
+            
                 # 添加到交易历史
-                self.transactions.append(order_info)
-                # 保存交易历史
-                self.save_transactions()
+                with self.transaction_lock:
+                    self.transactions.append(order_info)
+                    # 保存交易历史
+                    self.save_transactions()
                 
                 # 更新模拟持仓
                 if action == 'buy':
@@ -1079,8 +1165,10 @@ class StockMonitor:
         """运行监控程序
         
         主循环函数，持续监控所有配置的股票，执行监控和交易逻辑
+        使用多线程并行处理多个股票标的，提高运行效率
         """
         logger.info("股票监控程序已启动")
+        logger.info(f"使用多线程并行处理，最大线程数: {self.max_workers}")
         
         try:
             # 记录程序启动时的利润报告
@@ -1092,9 +1180,22 @@ class StockMonitor:
             report_interval = self.config.get('app', {}).get('profit_report_interval', 60)  # 默认60分钟
             
             while True:
-                # 遍历所有监控股票
-                for symbol, stock_config in self.stock_data.items():
-                    self.process_stock(symbol, stock_config)
+                # 使用线程池并行处理多个股票
+                with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+                    # 提交所有股票的处理任务
+                    future_to_stock = {
+                        executor.submit(self.process_stock, symbol, stock_config): (symbol, stock_config)
+                        for symbol, stock_config in self.stock_data.items()
+                    }
+                    
+                    # 等待所有任务完成并处理结果
+                    for future in concurrent.futures.as_completed(future_to_stock):
+                        symbol, _ = future_to_stock[future]
+                        try:
+                            future.result()  # 获取结果，以便捕获可能的异常
+                            logger.debug(f"股票 {symbol} 处理完成")
+                        except Exception as e:
+                            logger.error(f"处理股票 {symbol} 时出错: {e}")
                 
                 # 检查是否需要生成利润报告
                 now = datetime.now()
