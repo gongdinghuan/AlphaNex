@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>股票收益率可视化</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        .chart { width: 100%; height: 400px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>股票账户收益率可视化</h1>
+    <div>最后更新: {{ current_time }}</div>
+    
+    {% if account_data %}
+    <div>
+        <h3>账户信息</h3>
+        <p>总资产: {{ account_data.net_assets }}</p>
+        <p>当日收益率: {{ account_data.performance.daily_return }}%</p>
+    </div>
+    {% endif %}
+    
+    {% if statistics %}
+    <div>
+        <h3>统计信息</h3>
+        <p>累计收益率: {{ statistics.cumulative_return }}%</p>
+    </div>
+    {% endif %}
+    
+    <div id="returnChart" class="chart"></div>
+    <div id="cumulativeChart" class="chart"></div>
+    
+    <script>
+        // 初始化图表
+        const returnChart = echarts.init(document.getElementById('returnChart'));
+        const cumulativeChart = echarts.init(document.getElementById('cumulativeChart'));
+        
+        // 从模板变量获取数据
+        const returnLabels = {{ return_labels|tojson|safe }};
+        const dailyReturnData = {{ daily_return_data|tojson|safe }};
+        const cumulativeLabels = {{ cumulative_labels|tojson|safe }};
+        const cumulativeReturnData = {{ cumulative_return_data|tojson|safe }};
+        
+        // 日收益率图表
+        returnChart.setOption({
+            title: { text: '日收益率趋势', left: 'center' },
+            tooltip: { 
+                trigger: 'axis',
+                axisPointer: { type: 'cross' },
+                formatter: function(params) {
+                    return params[0].name + '<br/>' +
+                           '收益率: ' + params[0].value.toFixed(2) + '%';
+                }
+            },
+            xAxis: { 
+                type: 'category', 
+                data: returnLabels,
+                axisLabel: {
+                    formatter: function(value) {
+                        // 假设value已经是时间戳格式，直接显示
+                        return value;
+                    },
+                    interval: Math.floor(returnLabels.length / 10), // 控制显示密度
+                    rotate: 45
+                }
+            },
+            yAxis: { 
+                type: 'value',
+                axisLabel: { formatter: '{value}%' },
+                splitLine: { lineStyle: { type: 'dashed' } }
+            },
+            series: [{
+                type: 'line',
+                data: dailyReturnData,
+                smooth: true,
+                symbol: 'circle',
+                symbolSize: 6,
+                lineStyle: { 
+                    width: 3,
+                    color: '#5470c6'
+                },
+                itemStyle: {
+                    color: '#5470c6',
+                    borderColor: '#fff',
+                    borderWidth: 2
+                },
+                areaStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        { offset: 0, color: 'rgba(84, 112, 198, 0.3)' },
+                        { offset: 1, color: 'rgba(84, 112, 198, 0.05)' }
+                    ])
+                },
+                emphasis: {
+                    itemStyle: { symbolSize: 8 },
+                    focus: 'series'
+                },
+                animationDuration: 1000,
+                animationEasing: 'cubicOut'
+            }],
+            grid: { left: '10%', right: '10%', bottom: '20%', top: '15%' }
+        });
+        
+        // 累计收益率图表
+        cumulativeChart.setOption({
+            title: { text: '累计收益率趋势', left: 'center' },
+            tooltip: { 
+                trigger: 'axis',
+                axisPointer: { type: 'cross' },
+                formatter: function(params) {
+                    return params[0].name + '<br/>' +
+                           '累计收益率: ' + params[0].value.toFixed(2) + '%';
+                }
+            },
+            xAxis: { 
+                type: 'category', 
+                data: cumulativeLabels,
+                axisLabel: {
+                    formatter: function(value) {
+                        // 假设value已经是时间戳格式，直接显示
+                        return value;
+                    },
+                    interval: Math.floor(cumulativeLabels.length / 10), // 控制显示密度
+                    rotate: 45
+                }
+            },
+            yAxis: { 
+                type: 'value',
+                axisLabel: { formatter: '{value}%' },
+                splitLine: { lineStyle: { type: 'dashed' } }
+            },
+            series: [{
+                type: 'line',
+                data: cumulativeReturnData,
+                smooth: true,
+                symbol: 'circle',
+                symbolSize: 6,
+                lineStyle: { 
+                    width: 3,
+                    color: '#91cc75'
+                },
+                itemStyle: {
+                    color: '#91cc75',
+                    borderColor: '#fff',
+                    borderWidth: 2
+                },
+                areaStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        { offset: 0, color: 'rgba(145, 204, 117, 0.3)' },
+                        { offset: 1, color: 'rgba(145, 204, 117, 0.05)' }
+                    ])
+                },
+                emphasis: {
+                    itemStyle: { symbolSize: 8 },
+                    focus: 'series'
+                },
+                animationDuration: 1500,
+                animationEasing: 'cubicOut'
+            }],
+            grid: { left: '10%', right: '10%', bottom: '20%', top: '15%' }
+        });
+        
+        // 响应式调整
+        window.addEventListener('resize', function() {
+            returnChart.resize();
+            cumulativeChart.resize();
+        });
+    </script>
+</body>
+</html>
