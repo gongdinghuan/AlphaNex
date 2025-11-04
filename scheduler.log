@@ -1,0 +1,32 @@
+2025-11-01 15:18:11,011 - scheduler - INFO - 启动定时任务调度器...
+2025-11-01 15:18:11,013 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 15:18:11,013 - scheduler - INFO - 成功注册任务: 启动账户数据更新(22:30-5:00每10分钟)
+2025-11-01 15:18:11,013 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 15:18:11,014 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 15:18:11,014 - scheduler - INFO - 已注册 3 个任务
+2025-11-01 15:18:11,014 - scheduler - INFO - 调度器开始运行...
+2025-11-01 15:18:11,014 - apscheduler.scheduler - INFO - Added job "启动账户数据更新(22:30-5:00每10分钟)" to job store "default"
+2025-11-01 15:18:11,014 - apscheduler.scheduler - INFO - Added job "启动股票监控" to job store "default"
+2025-11-01 15:18:11,014 - apscheduler.scheduler - INFO - Added job "停止股票监控" to job store "default"
+2025-11-01 15:18:11,014 - apscheduler.scheduler - INFO - Scheduler started
+2025-11-01 15:19:43,365 - scheduler - INFO - 接收到中断信号，正在关闭调度器...
+2025-11-01 15:19:43,365 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2025-11-01 15:19:43,365 - scheduler - INFO - 调度器已关闭
+2025-11-01 23:03:16,635 - scheduler - INFO - 启动定时任务调度器...
+2025-11-01 23:03:16,641 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 23:03:16,641 - scheduler - INFO - 成功注册任务: 启动账户数据更新(22:30-5:00每10分钟)
+2025-11-01 23:03:16,641 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 23:03:16,642 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 23:03:16,642 - scheduler - INFO - 已注册 3 个任务
+2025-11-01 23:03:16,642 - scheduler - INFO - 调度器开始运行...
+2025-11-01 23:03:16,642 - apscheduler.scheduler - INFO - Added job "启动账户数据更新(22:30-5:00每10分钟)" to job store "default"
+2025-11-01 23:03:16,642 - apscheduler.scheduler - INFO - Added job "启动股票监控" to job store "default"
+2025-11-01 23:03:16,642 - apscheduler.scheduler - INFO - Added job "停止股票监控" to job store "default"
+2025-11-01 23:03:16,642 - apscheduler.scheduler - INFO - Scheduler started
+2025-11-01 23:05:00,005 - apscheduler.executors.default - INFO - Running job "启动股票监控 (trigger: cron[hour='23', minute='5'], next run at: 2025-11-01 23:05:00 CST)" (scheduled at 2025-11-01 23:05:00+08:00)
+2025-11-01 23:05:00,006 - scheduler - INFO - 准备启动 stock_monitor.py，路径: /Users/gongdinghuan/PycharmProjects/AlphaNex/stock_monitor.py
+2025-11-01 23:05:00,010 - scheduler - INFO - stock_monitor.py 已启动，进程ID: 8325
+2025-11-01 23:05:00,011 - apscheduler.executors.default - INFO - Job "启动股票监控 (trigger: cron[hour='23', minute='5'], next run at: 2025-11-02 23:05:00 CST)" executed successfully
+2025-11-01 23:08:44,608 - scheduler - INFO - 接收到中断信号，正在关闭调度器...
+2025-11-01 23:08:44,608 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2025-11-01 23:08:44,609 - scheduler - INFO - 调度器已关闭

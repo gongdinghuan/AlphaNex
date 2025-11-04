@@ -779,6 +779,7 @@ class StockMonitor:
             # {index_info}
             prompt = f"""请基于以下股票数据做出交易决策（买入/卖出/持有）：
             股票代码: {quote['symbol']}
+            5分钟涨跌幅: {stock_indexes.five_minutes_change_rate:.2f}%
             当前价格: {quote['last_price']}
             前收盘价: {quote['previous_close']}
             涨跌幅: {quote['change_percent']:.2f}%
@@ -794,9 +795,8 @@ class StockMonitor:
             
             请按照以下格式输出：
             指令: [买入/卖出/持有]
-            理由: [详细的决策理由，充分考虑基本面指标(如市盈率、市净率)、技术面指标(如涨跌幅、换手率)、资金流向、最近买入价和现价、5分钟涨跌幅、市场温度以及历史决策的连续性]
             数量: [建议交易的股数，基于当前市场情况、风险考量、股票估值水平和可用资金限制。买入时请确保不超过资金限额。]"""
-
+            #理由: [简洁的决策理由，充分考虑基本面指标(如市盈率、市净率)、技术面指标(如涨跌幅、换手率)、资金流向、最近买入价和现价、5分钟涨跌幅、市场温度以及历史决策的连续性]
             headers = {
                 'Content-Type': 'application/json',
                 'Authorization': f'Bearer {api_key}'
@@ -805,7 +805,7 @@ class StockMonitor:
             data = {
                 "model": "deepseek-chat",
                 "messages": [
-                    {"role": "system", "content": "你是一个顶尖的量化交易专家，精通算法交易、统计套利和机器学习交易策略。基于提供的全面数据进行严格的量化分析，包括：\n1. 技术指标分析：RSI、MACD、布林带、成交量变化率、波动率等\n2. 统计模型应用：价格动量、均值回归、波动率突破策略\n3. 风险管理：严格执行单笔交易资金限制(不超过资金限额的10%)、止损策略(单笔最大亏损不超过最近买入价格的2%)\n4. 多因子评估：市场温度、行业相对强度、资金流向、量价关系\n5. 时间序列分析：日内波动模式识别、短期趋势预测\n\n请在当前价格大于最近买入价5%时考虑卖出，买入决策必须严格遵守资金限制，在5分钟跌幅大于5%的时候买入。使用量化语言思考，基于数据而非情绪做出决策。输出必须是'买入'、'卖出'或'持有'中的一个，并提供量化角度的详细理由。"},
+                    {"role": "system", "content": "你是一个顶尖的量化交易专家，精通算法交易、统计套利和机器学习交易策略。基于提供的全面数据进行严格的量化分析，包括：\n1. 技术指标分析：RSI、MACD、布林带、成交量变化率、波动率等\n2. 统计模型应用：价格动量、均值回归、波动率突破策略\n3. 风险管理：严格执行单笔交易资金限制(不超过资金限额的10%)、止损策略(单笔最大亏损不超过最近买入价格的2%)\n4. 多因子评估：市场温度、行业相对强度、资金流向、量价关系\n5. 时间序列分析：日内波动模式识别、短期趋势预测\n\n请在当前价格大于最近买入价5%时考虑卖出，买入决策必须严格遵守资金限制，在5分钟跌幅大于1%的时候买入。使用量化语言思考，基于数据而非情绪做出决策。输出必须是'买入'、'卖出'或'持有'中的一个，不需要阐述理由。"},
                     {"role": "user", "content": prompt}
                 ],
                 "temperature": 1
@@ -912,7 +912,7 @@ class StockMonitor:
                             return None
             
             # 获取最大持仓限制
-            max_position = self.config.get('app', {}).get('max_position', 10000)
+            max_position = self.config.get('app', {}).get('max_position', 100000)
             
             # 检查持仓限制（对于买入操作）
             if action == 'buy' and self.stock_data[symbol]['position'] + (quantity * price) > max_position:
@@ -1177,7 +1177,7 @@ class StockMonitor:
             
             # 记录报告生成时间，用于定期报告
             last_report_time = datetime.now()
-            report_interval = self.config.get('app', {}).get('profit_report_interval', 60)  # 默认60分钟
+            report_interval = self.config.get('app', {}).get('profit_report_interval', 10)  # 默认60分钟
             
             while True:
                 # 使用线程池并行处理多个股票
@@ -1205,7 +1205,7 @@ class StockMonitor:
                     last_report_time = now
                 
                 # 等待下一次检查
-                check_interval = self.config['app'].get('check_interval', 10)
+                check_interval = self.config['app'].get('check_interval', 30)
                 logger.debug(f"等待{check_interval}秒后进行下一次检查")
                 time.sleep(check_interval)
                 

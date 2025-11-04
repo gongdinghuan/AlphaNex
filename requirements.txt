@@ -4,3 +4,6 @@ websocket-client
 python-dotenv
 # 假设需要的库，具体以LongPort SDK要求为准
 longport
+flask
+pandas
+matplotlib

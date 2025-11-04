@@ -64,7 +64,7 @@
   {
     "symbol": "MU.US",
     "action": "buy",
-    "quantity": 217,
+    "quantity": 215,
     "price": 230.14,
     "order_id": "1168210770241019904",
     "timestamp": "2025-10-29T23:32:27.768632",
@@ -90,5 +90,562 @@
         "profit_percent": -0.05264669283046483
       }
     ]
+  },
+  {
+    "symbol": "NOK.US",
+    "action": "buy",
+    "quantity": -6495,
+    "price": 7.43,
+    "order_id": "1168223263348764672",
+    "timestamp": "2025-10-30T00:22:06.556936",
+    "status": "submitted",
+    "closed": true
+  },
+  {
+    "symbol": "NOK.US",
+    "action": "sell",
+    "quantity": 6612,
+    "price": 7.426,
+    "order_id": "1168223766656868352",
+    "timestamp": "2025-10-30T00:24:06.545787",
+    "status": "submitted",
+    "profit": -26.447999999996682,
+    "profit_percent": -0.05383580080753027,
+    "matched_buys": [
+      {
+        "buy_order_id": "1168223263348764672",
+        "buy_price": 7.43,
+        "match_quantity": 6612,
+        "profit": -26.447999999996682,
+        "profit_percent": -0.05383580080753027
+      }
+    ]
+  },
+  {
+    "symbol": "MU.US",
+    "action": "buy",
+    "quantity": 1,
+    "price": 229.25,
+    "order_id": "1168243124879765504",
+    "timestamp": "2025-10-30T01:41:01.810556",
+    "status": "submitted",
+    "closed": false
+  },
+  {
+    "symbol": "MU.US",
+    "action": "sell",
+    "quantity": 1,
+    "price": 229.94,
+    "order_id": "1168243582876803072",
+    "timestamp": "2025-10-30T01:42:50.974177",
+    "status": "submitted",
+    "profit": -0.19999999999998863,
+    "profit_percent": -0.08690362388111092,
+    "matched_buys": [
+      {
+        "buy_order_id": "1168210770241019904",
+        "buy_price": 230.14,
+        "match_quantity": 1,
+        "profit": -0.19999999999998863,
+        "profit_percent": -0.08690362388111092
+      }
+    ]
+  },
+  {
+    "symbol": "BABA.US",
+    "action": "buy",
+    "quantity": 285,
+    "price": 175.05,
+    "order_id": "1168543822213296129",
+    "timestamp": "2025-10-30T21:35:57.666895",
+    "status": "submitted",
+    "closed": false
+  },
+  {
+    "symbol": "MU.US",
+    "action": "buy",
+    "quantity": 225,
+    "price": 221.912,
+    "order_id": "1168544208655507456",
+    "timestamp": "2025-10-30T21:37:29.793826",
+    "status": "submitted",
+    "closed": false
+  },
+  {
+    "symbol": "MSFT.US",
+    "action": "buy",
+    "quantity": 0,
+    "price": 531.36,
+    "order_id": "1168544349475057664",
+    "timestamp": "2025-10-30T21:38:03.343137",
+    "status": "submitted",
+    "closed": true
+  },
+  {
+    "symbol": "GOOG.US",
+    "action": "buy",
+    "quantity": 177,
+    "price": 282.47,
+    "order_id": "1168544418421039104",
+    "timestamp": "2025-10-30T21:38:19.783371",
+    "status": "submitted",
+    "closed": true
+  },
+  {
+    "symbol": "GOOG.US",
+    "action": "sell",
+    "quantity": 177,
+    "price": 281.33,
+    "order_id": "1168545988546146304",
+    "timestamp": "2025-10-30T21:44:34.136406",
+    "status": "submitted",
+    "profit": -201.7800000000061,
+    "profit_percent": -0.4035826813467039,
+    "matched_buys": [
+      {
+        "buy_order_id": "1168544418421039104",
+        "buy_price": 282.47,
+        "match_quantity": 177,
+        "profit": -201.7800000000061,
+        "profit_percent": -0.4035826813467039
+      }
+    ]
+  },
+  {
+    "symbol": "NOK.US",
+    "action": "buy",
+    "quantity": 7,
+    "price": 7.215,
+    "order_id": "1168548863678623744",
+    "timestamp": "2025-10-30T21:55:59.606607",
+    "status": "submitted",
+    "closed": true
+  },
+  {
+    "symbol": "MSFT.US",
+    "action": "sell",
+    "quantity": 47,
+    "price": 527.283,
+    "order_id": "1168553871539200000",
+    "timestamp": "2025-10-30T22:15:53.559403",
+    "status": "submitted",
+    "profit": -191.61900000000242,
+    "profit_percent": -0.7672764227642372,
+    "matched_buys": [
+      {
+        "buy_order_id": "1168544349475057664",
+        "buy_price": 531.36,
+        "match_quantity": 47,
+        "profit": -191.61900000000242,
+        "profit_percent": -0.7672764227642372
+      }
+    ]
+  },
+  {
+    "symbol": "GOOG.US",
+    "action": "buy",
+    "quantity": 10,
+    "price": 289.67,
+    "order_id": "1168553956230574080",
+    "timestamp": "2025-10-30T22:16:13.727947",
+    "status": "submitted",
+    "closed": true
+  },
+  {
+    "symbol": "NOK.US",
+    "action": "sell",
+    "quantity": 7,
+    "price": 7.11,
+    "order_id": "1168554445710057472",
+    "timestamp": "2025-10-30T22:18:10.441190",
+    "status": "submitted",
+    "profit": 2077.664999999994,
+    "profit_percent": 0,
+    "matched_buys": [
+      {
+        "buy_order_id": "1168223263348764672",
+        "buy_price": 7.43,
+        "match_quantity": -6495,
+        "profit": 2078.399999999994,
+        "profit_percent": 0
+      },
+      {
+        "buy_order_id": "1168548863678623744",
+        "buy_price": 7.215,
+        "match_quantity": 7,
+        "profit": -0.7349999999999923,
+        "profit_percent": -1.4553014553014403
+      }
+    ]
+  },
+  {
+    "symbol": "GOOG.US",
+    "action": "sell",
+    "quantity": 10,
+    "price": 290.1,
+    "order_id": "1168554763533430784",
+    "timestamp": "2025-10-30T22:19:26.194452",
+    "status": "submitted",
+    "profit": 4.299999999999727,
+    "profit_percent": 0.14844478199329328,
+    "matched_buys": [
+      {
+        "buy_order_id": "1168553956230574080",
+        "buy_price": 289.67,
+        "match_quantity": 10,
+        "profit": 4.299999999999727,
+        "profit_percent": 0.14844478199329328
+      }
+    ]
+  },
+  {
+    "symbol": "NVDA.US",
+    "action": "buy",
+    "quantity": 10,
+    "price": 202.47,
+    "order_id": "1168555213498376192",
+    "timestamp": "2025-10-30T22:21:13.499384",
+    "status": "submitted",
+    "closed": false
+  },
+  {
+    "symbol": "MSFT.US",
+    "action": "sell",
+    "quantity": 47,
+    "price": 528.96,
+    "order_id": "1168558632044879872",
+    "timestamp": "2025-10-30T22:34:48.500885",
+    "status": "submitted",
+    "profit": 0.0,
+    "profit_percent": 0,
+    "matched_buys": [
+      {
+        "buy_order_id": "1168544349475057664",
+        "buy_price": 531.36,
+        "match_quantity": 0,
+        "profit": 0.0,
+        "profit_percent": 0
+      }
+    ]
+  },
+  {
+    "symbol": "MSFT.US",
+    "action": "buy",
+    "quantity": 10,
+    "price": 527.0,
+    "order_id": "1168567488066117632",
+    "timestamp": "2025-10-30T23:10:00.069981",
+    "status": "submitted",
+    "closed": true
+  },
+  {
+    "symbol": "MSFT.US",
+    "action": "sell",
+    "quantity": 10,
+    "price": 526.694,
+    "order_id": "1168568322409652224",
+    "timestamp": "2025-10-30T23:13:18.990476",
+    "status": "submitted",
+    "profit": -3.0600000000004,
+    "profit_percent": -0.05806451612903985,
+    "matched_buys": [
+      {
+        "buy_order_id": "1168567488066117632",
+        "buy_price": 527.0,
+        "match_quantity": 10,
+        "profit": -3.0600000000004,
+        "profit_percent": -0.05806451612903985
+      }
+    ]
+  },
+  {
+    "symbol": "GOOG.US",
+    "action": "buy",
+    "quantity": 172,
+    "price": 288.95,
+    "order_id": "1168568386867716096",
+    "timestamp": "2025-10-30T23:13:34.361280",
+    "status": "submitted",
+    "closed": true
+  },
+  {
+    "symbol": "MSFT.US",
+    "action": "buy",
+    "quantity": 94,
+    "price": 525.08,
+    "order_id": "1168569161270452224",
+    "timestamp": "2025-10-30T23:16:38.987671",
+    "status": "submitted",
+    "closed": true
+  },
+  {
+    "symbol": "GOOG.US",
+    "action": "sell",
+    "quantity": 172,
+    "price": 288.696,
+    "order_id": "1168569228735832064",
+    "timestamp": "2025-10-30T23:16:55.083562",
+    "status": "submitted",
+    "profit": -43.687999999994645,
+    "profit_percent": -0.08790448174423564,
+    "matched_buys": [
+      {
+        "buy_order_id": "1168568386867716096",
+        "buy_price": 288.95,
+        "match_quantity": 172,
+        "profit": -43.687999999994645,
+        "profit_percent": -0.08790448174423564
+      }
+    ]
+  },
+  {
+    "symbol": "MSFT.US",
+    "action": "sell",
+    "quantity": 94,
+    "price": 524.69,
+    "order_id": "1168570711040614400",
+    "timestamp": "2025-10-30T23:22:48.501453",
+    "status": "submitted",
+    "profit": -36.65999999999622,
+    "profit_percent": -0.07427439628246357,
+    "matched_buys": [
+      {
+        "buy_order_id": "1168569161270452224",
+        "buy_price": 525.08,
+        "match_quantity": 94,
+        "profit": -36.65999999999622,
+        "profit_percent": -0.07427439628246357
+      }
+    ]
+  },
+  {
+    "symbol": "MSFT.US",
+    "action": "buy",
+    "quantity": 10,
+    "price": 524.996,
+    "order_id": "1168572240418070528",
+    "timestamp": "2025-10-30T23:28:53.145221",
+    "status": "submitted",
+    "closed": true
+  },
+  {
+    "symbol": "MSFT.US",
+    "action": "sell",
+    "quantity": 10,
+    "price": 525.06,
+    "order_id": "1168572983959117824",
+    "timestamp": "2025-10-30T23:31:50.414402",
+    "status": "submitted",
+    "profit": 0.6399999999994179,
+    "profit_percent": 0.012190569070991359,
+    "matched_buys": [
+      {
+        "buy_order_id": "1168572240418070528",
+        "buy_price": 524.996,
+        "match_quantity": 10,
+        "profit": 0.6399999999994179,
+        "profit_percent": 0.012190569070991359
+      }
+    ]
+  },
+  {
+    "symbol": "GOOG.US",
+    "action": "buy",
+    "quantity": 172,
+    "price": 288.44,
+    "order_id": "1168577739653918720",
+    "timestamp": "2025-10-30T23:50:44.300447",
+    "status": "submitted",
+    "closed": true
+  },
+  {
+    "symbol": "GOOG.US",
+    "action": "sell",
+    "quantity": 172,
+    "price": 288.19,
+    "order_id": "1168578539671269376",
+    "timestamp": "2025-10-30T23:53:55.033591",
+    "status": "submitted",
+    "profit": -43.0,
+    "profit_percent": -0.08667313826099016,
+    "matched_buys": [
+      {
+        "buy_order_id": "1168577739653918720",
+        "buy_price": 288.44,
+        "match_quantity": 172,
+        "profit": -43.0,
+        "profit_percent": -0.08667313826099016
+      }
+    ]
+  },
+  {
+    "symbol": "MSFT.US",
+    "action": "buy",
+    "quantity": 94,
+    "price": 525.54,
+    "order_id": "1168582974254374912",
+    "timestamp": "2025-10-31T00:11:32.190923",
+    "status": "submitted",
+    "closed": true
+  },
+  {
+    "symbol": "GOOG.US",
+    "action": "buy",
+    "quantity": 172,
+    "price": 287.45,
+    "order_id": "1168585937358172160",
+    "timestamp": "2025-10-31T00:23:18.685700",
+    "status": "submitted",
+    "closed": true
+  },
+  {
+    "symbol": "MSFT.US",
+    "action": "sell",
+    "quantity": 94,
+    "price": 526.92,
+    "order_id": "1168586610162282496",
+    "timestamp": "2025-10-31T00:25:59.081676",
+    "status": "submitted",
+    "profit": 129.72000000000116,
+    "profit_percent": 0.26258705331659105,
+    "matched_buys": [
+      {
+        "buy_order_id": "1168582974254374912",
+        "buy_price": 525.54,
+        "match_quantity": 94,
+        "profit": 129.72000000000116,
+        "profit_percent": 0.26258705331659105
+      }
+    ]
+  },
+  {
+    "symbol": "GOOG.US",
+    "action": "sell",
+    "quantity": 172,
+    "price": 286.96,
+    "order_id": "1168586685835927552",
+    "timestamp": "2025-10-31T00:26:17.114840",
+    "status": "submitted",
+    "profit": -84.28000000000611,
+    "profit_percent": -0.17046442859629,
+    "matched_buys": [
+      {
+        "buy_order_id": "1168585937358172160",
+        "buy_price": 287.45,
+        "match_quantity": 172,
+        "profit": -84.28000000000611,
+        "profit_percent": -0.17046442859629
+      }
+    ]
+  },
+  {
+    "symbol": "BABA.US",
+    "action": "buy",
+    "quantity": 293,
+    "price": 170.43,
+    "order_id": "1169089011554205696",
+    "timestamp": "2025-11-01T09:42:20.976318",
+    "status": "submitted",
+    "closed": false
+  },
+  {
+    "symbol": "GOOG.US",
+    "action": "buy",
+    "quantity": 260,
+    "price": 283.32,
+    "order_id": "1170034540807237632",
+    "timestamp": "2025-11-04T00:19:32.795322",
+    "status": "submitted",
+    "closed": false
+  },
+  {
+    "symbol": "MSFT.US",
+    "action": "buy",
+    "quantity": 116,
+    "price": 517.03,
+    "order_id": "1170327332121001984",
+    "timestamp": "2025-11-04T19:42:59.601255",
+    "status": "submitted",
+    "closed": false
+  },
+  {
+    "symbol": "BABA.US",
+    "action": "buy",
+    "quantity": 300,
+    "price": 167.69,
+    "order_id": "1170327629656526848",
+    "timestamp": "2025-11-04T19:44:10.512786",
+    "status": "submitted",
+    "closed": false
+  },
+  {
+    "symbol": "INTC.US",
+    "action": "buy",
+    "quantity": 1200,
+    "price": 39.5,
+    "order_id": "1170327795864211456",
+    "timestamp": "2025-11-04T19:44:50.129117",
+    "status": "submitted",
+    "closed": false
+  },
+  {
+    "symbol": "BABA.US",
+    "action": "buy",
+    "quantity": 283,
+    "price": 167.69,
+    "order_id": "1170330938853335040",
+    "timestamp": "2025-11-04T19:57:19.701011",
+    "status": "submitted",
+    "closed": false
+  },
+  {
+    "symbol": "INTC.US",
+    "action": "buy",
+    "quantity": 1200,
+    "price": 39.5,
+    "order_id": "1170330941172785152",
+    "timestamp": "2025-11-04T19:57:19.853597",
+    "status": "submitted",
+    "closed": false
+  },
+  {
+    "symbol": "BABA.US",
+    "action": "buy",
+    "quantity": 260,
+    "price": 166.127,
+    "order_id": "1170376311894491136",
+    "timestamp": "2025-11-04T22:57:37.339676",
+    "status": "submitted",
+    "closed": false
+  },
+  {
+    "symbol": "BABA.US",
+    "action": "buy",
+    "quantity": 256,
+    "price": 165.54,
+    "order_id": "1170378508145315840",
+    "timestamp": "2025-11-04T23:06:21.008016",
+    "status": "submitted",
+    "closed": false
+  },
+  {
+    "symbol": "MSFT.US",
+    "action": "buy",
+    "quantity": 82,
+    "price": 513.24,
+    "order_id": "1170378510074691584",
+    "timestamp": "2025-11-04T23:06:21.448860",
+    "status": "submitted",
+    "closed": false
+  },
+  {
+    "symbol": "GOOG.US",
+    "action": "buy",
+    "quantity": 150,
+    "price": 280.61,
+    "order_id": "1170378510716420096",
+    "timestamp": "2025-11-04T23:06:21.590081",
+    "status": "submitted",
+    "closed": false
   }
 ]
