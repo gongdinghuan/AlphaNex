@@ -61,17 +61,61 @@ def run_account_script():
         print(f"[{datetime.datetime.now()}] 运行account.py时出错: {e}")
 
 
+# 全局变量，用于存储scheduler.py的进程对象
+scheduler_process = None
+
+def run_scheduler_script():
+    """
+    运行scheduler.py脚本
+    """
+    global scheduler_process
+    try:
+        # 检查scheduler.py是否已经在运行
+        if scheduler_process is not None and scheduler_process.poll() is None:
+            print(f"[{datetime.datetime.now()}] scheduler.py已经在运行中")
+            return True
+        
+        # 获取当前脚本所在目录
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        scheduler_script_path = os.path.join(script_dir, 'scheduler.py')
+        
+        print(f"[{datetime.datetime.now()}] 开始运行scheduler.py...")
+        # 启动scheduler.py作为后台进程
+        scheduler_process = subprocess.Popen(
+            ['python3', scheduler_script_path],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            universal_newlines=True,
+            cwd=script_dir
+        )
+        
+        print(f"[{datetime.datetime.now()}] scheduler.py已启动，进程ID: {scheduler_process.pid}")
+        return True
+        
+    except Exception as e:
+        print(f"[{datetime.datetime.now()}] 运行scheduler.py时出错: {e}")
+        return False
+
 def scheduled_runner():
     """
-    定时运行account.py的后台线程函数
+    定时运行account.py的后台线程函数，并启动scheduler.py
     """
+    # 首先启动scheduler.py
+    run_scheduler_script()
+    
+    # 然后继续原来的account.py定时运行逻辑
     while True:
         try:
+            # 检查scheduler.py是否还在运行，如果没有运行则重新启动
+            if scheduler_process is None or scheduler_process.poll() is not None:
+                print(f"[{datetime.datetime.now()}] scheduler.py未在运行，正在重新启动...")
+                run_scheduler_script()
+            
             # 运行account.py
-            run_account_script()
+            #run_account_script()
             # 每10分钟运行一次
-            print(f"[{datetime.datetime.now()}] 等待10分钟后再次运行account.py...")
-            time.sleep(600)  # 600秒 = 10分钟
+            #print(f"[{datetime.datetime.now()}] 等待10分钟后再次运行account.py...")
+            #time.sleep(600)  # 600秒 = 10分钟
         except Exception as e:
             print(f"[{datetime.datetime.now()}] 定时任务出错: {e}")
             # 出错后等待1分钟再尝试
@@ -819,8 +863,8 @@ with open('templates/index.html', 'w', encoding='utf-8') as f:
 
 if __name__ == '__main__':
     # 启动定时任务
-    start_scheduler()
-    
+    #start_scheduler()
+    run_scheduler_script()
     # 在开发环境下运行应用，使用端口5001避免冲突
     print("启动股票账户收益率可视化Web应用...")
     print("请访问 http://127.0.0.1:5001 查看应用")

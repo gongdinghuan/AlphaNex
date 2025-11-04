@@ -20,8 +20,9 @@ from apscheduler.triggers.date import DateTrigger
 from apscheduler.jobstores.memory import MemoryJobStore
 from apscheduler.executors.pool import ThreadPoolExecutor
 
-# 全局变量，用于存储 stock_monitor.py 的进程ID
+# 全局变量，用于存储进程ID
 stock_monitor_process = None
+account_process = None
 
 # 配置日志
 logging.basicConfig(
@@ -37,13 +38,14 @@ logger = logging.getLogger('scheduler')
 # 任务配置示例
 JOBS_CONFIG = [
     {
-        'id': 'account_update',
-        'func': 'account:run_main',  # 调用account.py中的run_main函数
-        'trigger': 'interval',
-        'seconds': 600,  # 每10分钟执行一次
+        'id': 'start_account_process',
+        'func': 'scheduler:start_account_process',  # 调用当前脚本中的启动函数
+        'trigger': 'cron',
+        'hour': '22-23,0-4',  # 从22点到次日4点
+        'minute': '30,35,40,45,50,55,0,5,10,15,20,25,30,35,40,45,50,55',  # 每5分钟运行一次
         'args': (),
         'kwargs': {},
-        'name': '账户数据更新',
+        'name': '启动账户数据更新(22:30-5:00每5分钟)',
         'replace_existing': True
     }
 ]
@@ -86,6 +88,69 @@ def load_external_function(func_path):
         return getattr(module, function_name)
     except Exception as e:
         logger.error(f"加载函数 {func_path} 失败: {str(e)}")
+
+def start_account_process():
+    """
+    启动 account.py 进程
+    """
+    global account_process
+    try:
+        # 检查是否已经在运行
+        if account_process is not None and account_process.poll() is None:
+            logger.info("account.py 已经在运行中")
+            return
+        
+        # 构建运行命令，切换到正确的目录
+        account_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'account.py')
+        working_dir = os.path.dirname(account_path)
+        
+        logger.info(f"准备启动 account.py，路径: {account_path}")
+        
+        # 启动子进程
+        account_process = subprocess.Popen(
+            [sys.executable, account_path],
+            cwd=working_dir,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True
+        )
+        
+        logger.info(f"account.py 已启动，进程ID: {account_process.pid}")
+        
+    except Exception as e:
+        logger.error(f"启动 account.py 失败: {str(e)}")
+
+def stop_account_process():
+    """
+    停止 account.py 进程
+    """
+    global account_process
+    try:
+        # 检查进程是否存在且正在运行
+        if account_process is None or account_process.poll() is not None:
+            logger.info("account.py 未在运行")
+            return
+        
+        logger.info(f"准备停止 account.py，进程ID: {account_process.pid}")
+        
+        # 发送终止信号
+        account_process.terminate()
+        
+        # 等待进程终止，最多等待5秒
+        try:
+            account_process.wait(timeout=5)
+            logger.info("account.py 已成功停止")
+        except subprocess.TimeoutExpired:
+            # 如果超时，强制终止
+            logger.warning("account.py 未在指定时间内终止，强制终止")
+            account_process.kill()
+            logger.info("account.py 已强制终止")
+        
+        # 清理进程对象
+        account_process = None
+        
+    except Exception as e:
+        logger.error(f"停止 account.py 失败: {str(e)}")
         raise
 
 def register_jobs(scheduler):
@@ -174,6 +239,34 @@ def start_stock_monitor():
     except Exception as e:
         logger.error(f"启动 stock_monitor.py 失败: {str(e)}")
 
+def monitor_stock_monitor():
+    """
+    监控 stock_monitor.py 的运行状态，如果停止则自动重启（非5:00-23:05时间段不重启）
+    """
+    global stock_monitor_process
+    try:
+        # 获取当前时间
+        now = datetime.now()
+        current_hour = now.hour
+        current_minute = now.minute
+        
+        # 检查是否在应该运行的时间段内（23:05-次日5:00不重启）
+        # 23:05 到 23:59:59 应该允许重启
+        # 00:00:00 到 04:59:59 应该允许重启
+        # 05:00:00 到 23:04:59 不重启（因为5:00会自动停止，23:05会自动启动）
+        should_run = (current_hour >= 23 and current_minute >= 5) or (current_hour < 5)
+        
+        # 检查进程是否存在且正在运行
+        if (stock_monitor_process is None or stock_monitor_process.poll() is not None) and should_run:
+            logger.warning("检测到 stock_monitor.py 未在运行，正在重启...")
+            start_stock_monitor()
+        elif not should_run:
+            logger.debug(f"当前时间({current_hour}:{current_minute:02d})不在运行时间段内，不执行重启")
+        else:
+            logger.debug(f"stock_monitor.py 正常运行中，进程ID: {stock_monitor_process.pid}")
+    except Exception as e:
+        logger.error(f"监控 stock_monitor.py 状态时出错: {str(e)}")
+
 
 def stop_stock_monitor():
     """
@@ -208,12 +301,7 @@ def stop_stock_monitor():
         logger.error(f"停止 stock_monitor.py 失败: {str(e)}")
 
 
-def sample_task():
-    """
-    示例任务，用于测试
-    """
-    logger.info(f"示例任务执行于: {datetime.now()}")
-    print(f"示例任务执行于: {datetime.now()}")
+
 
 def main():
     """
@@ -227,15 +315,6 @@ def main():
         
         # 注册任务
         register_jobs(scheduler)
-        
-        # 添加直接在脚本中的示例任务，每5秒执行一次
-        scheduler.add_job(
-            sample_task,
-            'interval',
-            seconds=5,
-            id='sample_task',
-            name='示例任务'
-        )
         
         # 添加启动股票监控的定时任务，每天22:30执行
         scheduler.add_job(
@@ -258,6 +337,26 @@ def main():
             name='停止股票监控',
             replace_existing=True
         )
+        
+        # 添加监控股票监控进程的定时任务，每5分钟检查一次
+        scheduler.add_job(
+            monitor_stock_monitor,
+            'interval',
+            minutes=5,
+            id='monitor_stock_monitor',
+            name='监控股票监控进程',
+            replace_existing=True
+        )
+        
+        # 启动调度器前立即启动一次stock_monitor（如果在运行时间段内）
+        now = datetime.now()
+        current_hour = now.hour
+        current_minute = now.minute
+        should_run = (current_hour >= 22 and current_minute >= 30) or (current_hour < 5)
+        if should_run:
+            start_stock_monitor()
+        else:
+            logger.info(f"当前时间({current_hour}:{current_minute:02d})不在运行时间段内，调度器启动时暂不启动stock_monitor.py")
         
         logger.info(f"已注册 {len(scheduler.get_jobs())} 个任务")
         logger.info("调度器开始运行...")

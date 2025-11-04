@@ -432,3 +432,411 @@
 2025-11-01 14:26:00,911 - scheduler - INFO - 接收到中断信号，正在关闭调度器...
 2025-11-01 14:26:00,912 - apscheduler.scheduler - INFO - Scheduler has been shut down
 2025-11-01 14:26:00,912 - scheduler - INFO - 调度器已关闭
+2025-11-01 14:52:01,901 - scheduler - INFO - 启动定时任务调度器...
+2025-11-01 14:52:01,913 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 14:52:01,913 - scheduler - INFO - 成功注册任务: 账户数据更新
+2025-11-01 14:52:01,913 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 14:52:01,913 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 14:52:01,913 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 14:52:01,913 - scheduler - INFO - 已注册 4 个任务
+2025-11-01 14:52:01,913 - scheduler - INFO - 调度器开始运行...
+2025-11-01 14:52:01,913 - apscheduler.scheduler - INFO - Added job "账户数据更新" to job store "default"
+2025-11-01 14:52:01,913 - apscheduler.scheduler - INFO - Added job "示例任务" to job store "default"
+2025-11-01 14:52:01,913 - apscheduler.scheduler - INFO - Added job "启动股票监控" to job store "default"
+2025-11-01 14:52:01,913 - apscheduler.scheduler - INFO - Added job "停止股票监控" to job store "default"
+2025-11-01 14:52:01,913 - apscheduler.scheduler - INFO - Scheduler started
+2025-11-01 14:52:06,915 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:06 CST)" (scheduled at 2025-11-01 14:52:06.913404+08:00)
+2025-11-01 14:52:06,916 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:52:06.916297
+2025-11-01 14:52:06,916 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:11 CST)" executed successfully
+2025-11-01 14:52:11,914 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:16 CST)" (scheduled at 2025-11-01 14:52:11.913404+08:00)
+2025-11-01 14:52:11,914 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:52:11.914819
+2025-11-01 14:52:11,915 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:16 CST)" executed successfully
+2025-11-01 14:52:16,916 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:21 CST)" (scheduled at 2025-11-01 14:52:16.913404+08:00)
+2025-11-01 14:52:16,916 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:52:16.916784
+2025-11-01 14:52:16,916 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:21 CST)" executed successfully
+2025-11-01 14:52:21,914 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:26 CST)" (scheduled at 2025-11-01 14:52:21.913404+08:00)
+2025-11-01 14:52:21,915 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:52:21.915011
+2025-11-01 14:52:21,915 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:26 CST)" executed successfully
+2025-11-01 14:52:26,916 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:31 CST)" (scheduled at 2025-11-01 14:52:26.913404+08:00)
+2025-11-01 14:52:26,917 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:52:26.917151
+2025-11-01 14:52:26,917 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:31 CST)" executed successfully
+2025-11-01 14:52:31,916 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:36 CST)" (scheduled at 2025-11-01 14:52:31.913404+08:00)
+2025-11-01 14:52:31,916 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:52:31.916834
+2025-11-01 14:52:31,916 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:36 CST)" executed successfully
+2025-11-01 14:52:36,919 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:41 CST)" (scheduled at 2025-11-01 14:52:36.913404+08:00)
+2025-11-01 14:52:36,920 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:52:36.920105
+2025-11-01 14:52:36,920 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:41 CST)" executed successfully
+2025-11-01 14:52:41,918 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:46 CST)" (scheduled at 2025-11-01 14:52:41.913404+08:00)
+2025-11-01 14:52:41,919 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:52:41.919080
+2025-11-01 14:52:41,919 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:46 CST)" executed successfully
+2025-11-01 14:52:46,917 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:51 CST)" (scheduled at 2025-11-01 14:52:46.913404+08:00)
+2025-11-01 14:52:46,917 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:52:46.917488
+2025-11-01 14:52:46,917 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:51 CST)" executed successfully
+2025-11-01 14:52:51,918 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:56 CST)" (scheduled at 2025-11-01 14:52:51.913404+08:00)
+2025-11-01 14:52:51,918 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:52:51.918367
+2025-11-01 14:52:51,918 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:52:56 CST)" executed successfully
+2025-11-01 14:52:56,913 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:01 CST)" (scheduled at 2025-11-01 14:52:56.913404+08:00)
+2025-11-01 14:52:56,914 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:52:56.914061
+2025-11-01 14:52:56,914 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:01 CST)" executed successfully
+2025-11-01 14:53:01,918 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:06 CST)" (scheduled at 2025-11-01 14:53:01.913404+08:00)
+2025-11-01 14:53:01,919 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:53:01.919371
+2025-11-01 14:53:01,919 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:06 CST)" executed successfully
+2025-11-01 14:53:06,917 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:11 CST)" (scheduled at 2025-11-01 14:53:06.913404+08:00)
+2025-11-01 14:53:06,917 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:53:06.917527
+2025-11-01 14:53:06,917 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:11 CST)" executed successfully
+2025-11-01 14:53:11,918 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:16 CST)" (scheduled at 2025-11-01 14:53:11.913404+08:00)
+2025-11-01 14:53:11,918 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:53:11.918913
+2025-11-01 14:53:11,919 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:16 CST)" executed successfully
+2025-11-01 14:53:16,915 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:21 CST)" (scheduled at 2025-11-01 14:53:16.913404+08:00)
+2025-11-01 14:53:16,915 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:53:16.915527
+2025-11-01 14:53:16,915 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:21 CST)" executed successfully
+2025-11-01 14:53:21,918 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:26 CST)" (scheduled at 2025-11-01 14:53:21.913404+08:00)
+2025-11-01 14:53:21,918 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:53:21.918954
+2025-11-01 14:53:21,919 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:26 CST)" executed successfully
+2025-11-01 14:53:26,915 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:31 CST)" (scheduled at 2025-11-01 14:53:26.913404+08:00)
+2025-11-01 14:53:26,916 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:53:26.916148
+2025-11-01 14:53:26,916 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:31 CST)" executed successfully
+2025-11-01 14:53:31,914 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:36 CST)" (scheduled at 2025-11-01 14:53:31.913404+08:00)
+2025-11-01 14:53:31,915 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:53:31.915102
+2025-11-01 14:53:31,915 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:36 CST)" executed successfully
+2025-11-01 14:53:36,917 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:41 CST)" (scheduled at 2025-11-01 14:53:36.913404+08:00)
+2025-11-01 14:53:36,918 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:53:36.918284
+2025-11-01 14:53:36,918 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:41 CST)" executed successfully
+2025-11-01 14:53:41,917 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:46 CST)" (scheduled at 2025-11-01 14:53:41.913404+08:00)
+2025-11-01 14:53:41,918 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:53:41.918128
+2025-11-01 14:53:41,918 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:53:46 CST)" executed successfully
+2025-11-01 14:53:44,963 - scheduler - INFO - 接收到中断信号，正在关闭调度器...
+2025-11-01 14:53:44,964 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2025-11-01 14:53:44,964 - scheduler - INFO - 调度器已关闭
+2025-11-01 14:55:16,534 - scheduler - INFO - 启动定时任务调度器...
+2025-11-01 14:55:16,552 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 14:55:16,552 - scheduler - INFO - 成功注册任务: 账户数据更新(22:30)
+2025-11-01 14:55:16,552 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 14:55:16,552 - scheduler - INFO - 成功注册任务: 账户数据更新(5:00)
+2025-11-01 14:55:16,552 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 14:55:16,552 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 14:55:16,552 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 14:55:16,552 - scheduler - INFO - 已注册 5 个任务
+2025-11-01 14:55:16,552 - scheduler - INFO - 调度器开始运行...
+2025-11-01 14:55:16,552 - apscheduler.scheduler - INFO - Added job "账户数据更新(22:30)" to job store "default"
+2025-11-01 14:55:16,552 - apscheduler.scheduler - INFO - Added job "账户数据更新(5:00)" to job store "default"
+2025-11-01 14:55:16,552 - apscheduler.scheduler - INFO - Added job "示例任务" to job store "default"
+2025-11-01 14:55:16,552 - apscheduler.scheduler - INFO - Added job "启动股票监控" to job store "default"
+2025-11-01 14:55:16,552 - apscheduler.scheduler - INFO - Added job "停止股票监控" to job store "default"
+2025-11-01 14:55:16,552 - apscheduler.scheduler - INFO - Scheduler started
+2025-11-01 14:55:21,556 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:55:21 CST)" (scheduled at 2025-11-01 14:55:21.552284+08:00)
+2025-11-01 14:55:21,556 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:55:21.556844
+2025-11-01 14:55:21,556 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:55:26 CST)" executed successfully
+2025-11-01 14:55:26,554 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:55:31 CST)" (scheduled at 2025-11-01 14:55:26.552284+08:00)
+2025-11-01 14:55:26,554 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:55:26.554728
+2025-11-01 14:55:26,554 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:55:31 CST)" executed successfully
+2025-11-01 14:55:31,555 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:55:36 CST)" (scheduled at 2025-11-01 14:55:31.552284+08:00)
+2025-11-01 14:55:31,555 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:55:31.555805
+2025-11-01 14:55:31,555 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:55:36 CST)" executed successfully
+2025-11-01 14:55:36,557 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:55:41 CST)" (scheduled at 2025-11-01 14:55:36.552284+08:00)
+2025-11-01 14:55:36,558 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:55:36.558045
+2025-11-01 14:55:36,558 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:55:41 CST)" executed successfully
+2025-11-01 14:55:41,557 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:55:46 CST)" (scheduled at 2025-11-01 14:55:41.552284+08:00)
+2025-11-01 14:55:41,558 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:55:41.558222
+2025-11-01 14:55:41,558 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:55:46 CST)" executed successfully
+2025-11-01 14:55:46,557 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:55:51 CST)" (scheduled at 2025-11-01 14:55:46.552284+08:00)
+2025-11-01 14:55:46,557 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:55:46.557499
+2025-11-01 14:55:46,557 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:55:51 CST)" executed successfully
+2025-11-01 14:55:51,555 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:55:56 CST)" (scheduled at 2025-11-01 14:55:51.552284+08:00)
+2025-11-01 14:55:51,556 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:55:51.556095
+2025-11-01 14:55:51,556 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:55:56 CST)" executed successfully
+2025-11-01 14:55:56,557 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:01 CST)" (scheduled at 2025-11-01 14:55:56.552284+08:00)
+2025-11-01 14:55:56,558 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:55:56.558108
+2025-11-01 14:55:56,558 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:01 CST)" executed successfully
+2025-11-01 14:56:01,557 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:06 CST)" (scheduled at 2025-11-01 14:56:01.552284+08:00)
+2025-11-01 14:56:01,557 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:56:01.557725
+2025-11-01 14:56:01,557 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:06 CST)" executed successfully
+2025-11-01 14:56:06,557 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:11 CST)" (scheduled at 2025-11-01 14:56:06.552284+08:00)
+2025-11-01 14:56:06,558 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:56:06.557990
+2025-11-01 14:56:06,558 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:11 CST)" executed successfully
+2025-11-01 14:56:11,554 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:16 CST)" (scheduled at 2025-11-01 14:56:11.552284+08:00)
+2025-11-01 14:56:11,555 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:56:11.555028
+2025-11-01 14:56:11,555 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:16 CST)" executed successfully
+2025-11-01 14:56:16,554 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:21 CST)" (scheduled at 2025-11-01 14:56:16.552284+08:00)
+2025-11-01 14:56:16,554 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:56:16.554737
+2025-11-01 14:56:16,554 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:21 CST)" executed successfully
+2025-11-01 14:56:21,555 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:26 CST)" (scheduled at 2025-11-01 14:56:21.552284+08:00)
+2025-11-01 14:56:21,556 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:56:21.556207
+2025-11-01 14:56:21,556 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:26 CST)" executed successfully
+2025-11-01 14:56:26,557 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:31 CST)" (scheduled at 2025-11-01 14:56:26.552284+08:00)
+2025-11-01 14:56:26,558 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:56:26.557991
+2025-11-01 14:56:26,558 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:31 CST)" executed successfully
+2025-11-01 14:56:31,556 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:36 CST)" (scheduled at 2025-11-01 14:56:31.552284+08:00)
+2025-11-01 14:56:31,556 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:56:31.556779
+2025-11-01 14:56:31,556 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:36 CST)" executed successfully
+2025-11-01 14:56:36,557 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:41 CST)" (scheduled at 2025-11-01 14:56:36.552284+08:00)
+2025-11-01 14:56:36,557 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:56:36.557728
+2025-11-01 14:56:36,557 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:41 CST)" executed successfully
+2025-11-01 14:56:41,557 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:46 CST)" (scheduled at 2025-11-01 14:56:41.552284+08:00)
+2025-11-01 14:56:41,558 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:56:41.558216
+2025-11-01 14:56:41,558 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:46 CST)" executed successfully
+2025-11-01 14:56:46,555 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:51 CST)" (scheduled at 2025-11-01 14:56:46.552284+08:00)
+2025-11-01 14:56:46,555 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:56:46.555463
+2025-11-01 14:56:46,555 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:51 CST)" executed successfully
+2025-11-01 14:56:51,554 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:56 CST)" (scheduled at 2025-11-01 14:56:51.552284+08:00)
+2025-11-01 14:56:51,554 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:56:51.554454
+2025-11-01 14:56:51,554 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:56:56 CST)" executed successfully
+2025-11-01 14:56:56,553 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:57:01 CST)" (scheduled at 2025-11-01 14:56:56.552284+08:00)
+2025-11-01 14:56:56,553 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:56:56.553416
+2025-11-01 14:56:56,553 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:57:01 CST)" executed successfully
+2025-11-01 14:57:01,554 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:57:06 CST)" (scheduled at 2025-11-01 14:57:01.552284+08:00)
+2025-11-01 14:57:01,555 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:57:01.555089
+2025-11-01 14:57:01,555 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:57:06 CST)" executed successfully
+2025-11-01 14:57:06,552 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:57:11 CST)" (scheduled at 2025-11-01 14:57:06.552284+08:00)
+2025-11-01 14:57:06,553 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:57:06.553164
+2025-11-01 14:57:06,553 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:57:11 CST)" executed successfully
+2025-11-01 14:57:11,555 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:57:16 CST)" (scheduled at 2025-11-01 14:57:11.552284+08:00)
+2025-11-01 14:57:11,555 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:57:11.555785
+2025-11-01 14:57:11,555 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:57:16 CST)" executed successfully
+2025-11-01 14:57:16,557 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:57:21 CST)" (scheduled at 2025-11-01 14:57:16.552284+08:00)
+2025-11-01 14:57:16,557 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:57:16.557847
+2025-11-01 14:57:16,557 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:57:21 CST)" executed successfully
+2025-11-01 14:57:21,557 - apscheduler.executors.default - INFO - Running job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:57:26 CST)" (scheduled at 2025-11-01 14:57:21.552284+08:00)
+2025-11-01 14:57:21,557 - scheduler - INFO - 示例任务执行于: 2025-11-01 14:57:21.557815
+2025-11-01 14:57:21,557 - apscheduler.executors.default - INFO - Job "示例任务 (trigger: interval[0:00:05], next run at: 2025-11-01 14:57:26 CST)" executed successfully
+2025-11-01 14:57:24,363 - scheduler - INFO - 接收到中断信号，正在关闭调度器...
+2025-11-01 14:57:24,363 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2025-11-01 14:57:24,363 - scheduler - INFO - 调度器已关闭
+2025-11-01 14:57:26,431 - scheduler - INFO - 启动定时任务调度器...
+2025-11-01 14:57:26,442 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 14:57:26,442 - scheduler - INFO - 成功注册任务: 账户数据更新(22:30)
+2025-11-01 14:57:26,442 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 14:57:26,442 - scheduler - INFO - 成功注册任务: 账户数据更新(5:00)
+2025-11-01 14:57:26,442 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 14:57:26,442 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 14:57:26,442 - scheduler - INFO - 已注册 4 个任务
+2025-11-01 14:57:26,443 - scheduler - INFO - 调度器开始运行...
+2025-11-01 14:57:26,443 - apscheduler.scheduler - INFO - Added job "账户数据更新(22:30)" to job store "default"
+2025-11-01 14:57:26,443 - apscheduler.scheduler - INFO - Added job "账户数据更新(5:00)" to job store "default"
+2025-11-01 14:57:26,443 - apscheduler.scheduler - INFO - Added job "启动股票监控" to job store "default"
+2025-11-01 14:57:26,443 - apscheduler.scheduler - INFO - Added job "停止股票监控" to job store "default"
+2025-11-01 14:57:26,443 - apscheduler.scheduler - INFO - Scheduler started
+2025-11-01 15:01:54,339 - scheduler - INFO - 接收到中断信号，正在关闭调度器...
+2025-11-01 15:01:54,340 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2025-11-01 15:01:54,340 - scheduler - INFO - 调度器已关闭
+2025-11-01 15:01:57,842 - scheduler - INFO - 启动定时任务调度器...
+2025-11-01 15:01:57,844 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 15:01:57,844 - scheduler - INFO - 成功注册任务: 启动账户数据更新
+2025-11-01 15:01:57,844 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 15:01:57,844 - scheduler - INFO - 成功注册任务: 停止账户数据更新
+2025-11-01 15:01:57,844 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 15:01:57,844 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 15:01:57,844 - scheduler - INFO - 已注册 4 个任务
+2025-11-01 15:01:57,844 - scheduler - INFO - 调度器开始运行...
+2025-11-01 15:01:57,844 - apscheduler.scheduler - INFO - Added job "启动账户数据更新" to job store "default"
+2025-11-01 15:01:57,845 - apscheduler.scheduler - INFO - Added job "停止账户数据更新" to job store "default"
+2025-11-01 15:01:57,845 - apscheduler.scheduler - INFO - Added job "启动股票监控" to job store "default"
+2025-11-01 15:01:57,845 - apscheduler.scheduler - INFO - Added job "停止股票监控" to job store "default"
+2025-11-01 15:01:57,845 - apscheduler.scheduler - INFO - Scheduler started
+2025-11-01 15:04:06,253 - scheduler - INFO - 接收到中断信号，正在关闭调度器...
+2025-11-01 15:04:06,254 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2025-11-01 15:04:06,254 - scheduler - INFO - 调度器已关闭
+2025-11-01 15:17:28,922 - scheduler - INFO - 启动定时任务调度器...
+2025-11-01 15:17:28,927 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 15:17:28,927 - scheduler - INFO - 成功注册任务: 启动账户数据更新(22:30-5:00每10分钟)
+2025-11-01 15:17:28,927 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 15:17:28,927 - scheduler - INFO - 成功注册任务: 停止账户数据更新
+2025-11-01 15:17:28,927 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 15:17:28,927 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 15:17:28,927 - scheduler - INFO - 已注册 4 个任务
+2025-11-01 15:17:28,927 - scheduler - INFO - 调度器开始运行...
+2025-11-01 15:17:28,927 - apscheduler.scheduler - INFO - Added job "启动账户数据更新(22:30-5:00每10分钟)" to job store "default"
+2025-11-01 15:17:28,927 - apscheduler.scheduler - INFO - Added job "停止账户数据更新" to job store "default"
+2025-11-01 15:17:28,927 - apscheduler.scheduler - INFO - Added job "启动股票监控" to job store "default"
+2025-11-01 15:17:28,927 - apscheduler.scheduler - INFO - Added job "停止股票监控" to job store "default"
+2025-11-01 15:17:28,927 - apscheduler.scheduler - INFO - Scheduler started
+2025-11-01 15:18:08,923 - scheduler - INFO - 接收到中断信号，正在关闭调度器...
+2025-11-01 15:18:08,923 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2025-11-01 15:18:08,923 - scheduler - INFO - 调度器已关闭
+2025-11-01 15:19:44,201 - scheduler - INFO - 启动定时任务调度器...
+2025-11-01 15:19:44,203 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 15:19:44,203 - scheduler - INFO - 成功注册任务: 启动账户数据更新(22:30-5:00每10分钟)
+2025-11-01 15:19:44,203 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 15:19:44,203 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-01 15:19:44,203 - scheduler - INFO - 已注册 3 个任务
+2025-11-01 15:19:44,203 - scheduler - INFO - 调度器开始运行...
+2025-11-01 15:19:44,203 - apscheduler.scheduler - INFO - Added job "启动账户数据更新(22:30-5:00每10分钟)" to job store "default"
+2025-11-01 15:19:44,203 - apscheduler.scheduler - INFO - Added job "启动股票监控" to job store "default"
+2025-11-01 15:19:44,203 - apscheduler.scheduler - INFO - Added job "停止股票监控" to job store "default"
+2025-11-01 15:19:44,203 - apscheduler.scheduler - INFO - Scheduler started
+2025-11-01 15:20:18,671 - scheduler - INFO - 接收到中断信号，正在关闭调度器...
+2025-11-01 15:20:18,671 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2025-11-01 15:20:18,671 - scheduler - INFO - 调度器已关闭
+2025-11-04 19:55:22,219 - scheduler - INFO - 启动定时任务调度器...
+2025-11-04 19:55:22,224 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-04 19:55:22,224 - scheduler - INFO - 成功注册任务: 启动账户数据更新(22:30-5:00每10分钟)
+2025-11-04 19:55:22,224 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-04 19:55:22,224 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-04 19:55:22,224 - scheduler - INFO - 准备启动 stock_monitor.py，路径: /Users/gongdinghuan/PycharmProjects/AlphaNex/stock_monitor.py
+2025-11-04 19:55:22,225 - scheduler - INFO - stock_monitor.py 已启动，进程ID: 4160
+2025-11-04 19:55:22,225 - scheduler - INFO - 已注册 3 个任务
+2025-11-04 19:55:22,225 - scheduler - INFO - 调度器开始运行...
+2025-11-04 19:55:22,225 - apscheduler.scheduler - INFO - Added job "启动账户数据更新(22:30-5:00每10分钟)" to job store "default"
+2025-11-04 19:55:22,225 - apscheduler.scheduler - INFO - Added job "启动股票监控" to job store "default"
+2025-11-04 19:55:22,225 - apscheduler.scheduler - INFO - Added job "监控股票监控进程" to job store "default"
+2025-11-04 19:55:22,225 - apscheduler.scheduler - INFO - Scheduler started
+2025-11-04 20:00:22,225 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:00:22 CST)" (scheduled at 2025-11-04 20:00:22.224199+08:00)
+2025-11-04 20:00:22,227 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:05:22 CST)" executed successfully
+2025-11-04 20:02:00,573 - scheduler - INFO - 启动定时任务调度器...
+2025-11-04 20:02:00,577 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-04 20:02:00,577 - scheduler - INFO - 成功注册任务: 启动账户数据更新(22:30-5:00每10分钟)
+2025-11-04 20:02:00,577 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-04 20:02:00,577 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-04 20:02:00,577 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-04 20:02:00,577 - scheduler - INFO - 当前时间(20:02)不在运行时间段内，调度器启动时暂不启动stock_monitor.py
+2025-11-04 20:02:00,577 - scheduler - INFO - 已注册 4 个任务
+2025-11-04 20:02:00,577 - scheduler - INFO - 调度器开始运行...
+2025-11-04 20:02:00,577 - apscheduler.scheduler - INFO - Added job "启动账户数据更新(22:30-5:00每10分钟)" to job store "default"
+2025-11-04 20:02:00,577 - apscheduler.scheduler - INFO - Added job "启动股票监控" to job store "default"
+2025-11-04 20:02:00,577 - apscheduler.scheduler - INFO - Added job "停止股票监控" to job store "default"
+2025-11-04 20:02:00,577 - apscheduler.scheduler - INFO - Added job "监控股票监控进程" to job store "default"
+2025-11-04 20:02:00,577 - apscheduler.scheduler - INFO - Scheduler started
+2025-11-04 20:02:22,582 - scheduler - INFO - 启动定时任务调度器...
+2025-11-04 20:02:22,584 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-04 20:02:22,584 - scheduler - INFO - 成功注册任务: 启动账户数据更新(22:30-5:00每10分钟)
+2025-11-04 20:02:22,584 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-04 20:02:22,584 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-04 20:02:22,584 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-11-04 20:02:22,584 - scheduler - INFO - 当前时间(20:02)不在运行时间段内，调度器启动时暂不启动stock_monitor.py
+2025-11-04 20:02:22,584 - scheduler - INFO - 已注册 4 个任务
+2025-11-04 20:02:22,584 - scheduler - INFO - 调度器开始运行...
+2025-11-04 20:02:22,585 - apscheduler.scheduler - INFO - Added job "启动账户数据更新(22:30-5:00每10分钟)" to job store "default"
+2025-11-04 20:02:22,585 - apscheduler.scheduler - INFO - Added job "启动股票监控" to job store "default"
+2025-11-04 20:02:22,585 - apscheduler.scheduler - INFO - Added job "停止股票监控" to job store "default"
+2025-11-04 20:02:22,585 - apscheduler.scheduler - INFO - Added job "监控股票监控进程" to job store "default"
+2025-11-04 20:02:22,585 - apscheduler.scheduler - INFO - Scheduler started
+2025-11-04 20:06:28,427 - scheduler - INFO - 接收到中断信号，正在关闭调度器...
+2025-11-04 20:06:28,428 - apscheduler.scheduler - INFO - Scheduler has been shut down
+2025-11-04 20:06:28,428 - scheduler - INFO - 调度器已关闭
+2025-11-04 20:07:00,579 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:07:00 CST)" (scheduled at 2025-11-04 20:07:00.577686+08:00)
+2025-11-04 20:07:00,580 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:12:00 CST)" executed successfully
+2025-11-04 20:12:00,578 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:17:00 CST)" (scheduled at 2025-11-04 20:12:00.577686+08:00)
+2025-11-04 20:12:00,579 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:17:00 CST)" executed successfully
+2025-11-04 20:17:00,578 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:22:00 CST)" (scheduled at 2025-11-04 20:17:00.577686+08:00)
+2025-11-04 20:17:00,579 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:22:00 CST)" executed successfully
+2025-11-04 20:22:00,652 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:27:00 CST)" (scheduled at 2025-11-04 20:22:00.577686+08:00)
+2025-11-04 20:22:00,652 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:27:00 CST)" executed successfully
+2025-11-04 20:27:00,580 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:32:00 CST)" (scheduled at 2025-11-04 20:27:00.577686+08:00)
+2025-11-04 20:27:00,581 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:32:00 CST)" executed successfully
+2025-11-04 20:32:00,580 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:37:00 CST)" (scheduled at 2025-11-04 20:32:00.577686+08:00)
+2025-11-04 20:32:00,581 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:37:00 CST)" executed successfully
+2025-11-04 20:37:00,653 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:42:00 CST)" (scheduled at 2025-11-04 20:37:00.577686+08:00)
+2025-11-04 20:37:00,654 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:42:00 CST)" executed successfully
+2025-11-04 20:42:00,586 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:47:00 CST)" (scheduled at 2025-11-04 20:42:00.577686+08:00)
+2025-11-04 20:42:00,586 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:47:00 CST)" executed successfully
+2025-11-04 20:47:00,586 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:52:00 CST)" (scheduled at 2025-11-04 20:47:00.577686+08:00)
+2025-11-04 20:47:00,587 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:52:00 CST)" executed successfully
+2025-11-04 20:52:00,585 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:57:00 CST)" (scheduled at 2025-11-04 20:52:00.577686+08:00)
+2025-11-04 20:52:00,586 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 20:57:00 CST)" executed successfully
+2025-11-04 20:57:00,583 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:02:00 CST)" (scheduled at 2025-11-04 20:57:00.577686+08:00)
+2025-11-04 20:57:00,584 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:02:00 CST)" executed successfully
+2025-11-04 21:02:00,586 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:07:00 CST)" (scheduled at 2025-11-04 21:02:00.577686+08:00)
+2025-11-04 21:02:00,587 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:07:00 CST)" executed successfully
+2025-11-04 21:21:18,536 - apscheduler.executors.default - WARNING - Run time of job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:22:00 CST)" was missed by 0:14:17.958841
+2025-11-04 21:21:18,537 - apscheduler.executors.default - WARNING - Run time of job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:22:00 CST)" was missed by 0:09:17.959959
+2025-11-04 21:21:18,537 - apscheduler.executors.default - WARNING - Run time of job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:22:00 CST)" was missed by 0:04:17.960186
+2025-11-04 21:22:00,583 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:27:00 CST)" (scheduled at 2025-11-04 21:22:00.577686+08:00)
+2025-11-04 21:22:00,584 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:27:00 CST)" executed successfully
+2025-11-04 21:27:00,589 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:32:00 CST)" (scheduled at 2025-11-04 21:27:00.577686+08:00)
+2025-11-04 21:27:00,589 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:32:00 CST)" executed successfully
+2025-11-04 21:32:00,589 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:37:00 CST)" (scheduled at 2025-11-04 21:32:00.577686+08:00)
+2025-11-04 21:32:00,589 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:37:00 CST)" executed successfully
+2025-11-04 21:37:00,589 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:42:00 CST)" (scheduled at 2025-11-04 21:37:00.577686+08:00)
+2025-11-04 21:37:00,590 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:42:00 CST)" executed successfully
+2025-11-04 21:42:00,589 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:47:00 CST)" (scheduled at 2025-11-04 21:42:00.577686+08:00)
+2025-11-04 21:42:00,589 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:47:00 CST)" executed successfully
+2025-11-04 21:47:00,589 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:52:00 CST)" (scheduled at 2025-11-04 21:47:00.577686+08:00)
+2025-11-04 21:47:00,589 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:52:00 CST)" executed successfully
+2025-11-04 21:52:00,588 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:57:00 CST)" (scheduled at 2025-11-04 21:52:00.577686+08:00)
+2025-11-04 21:52:00,588 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 21:57:00 CST)" executed successfully
+2025-11-04 21:57:00,584 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:02:00 CST)" (scheduled at 2025-11-04 21:57:00.577686+08:00)
+2025-11-04 21:57:00,590 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:02:00 CST)" executed successfully
+2025-11-04 22:00:00,007 - apscheduler.executors.default - INFO - Running job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 22:10:00 CST)" (scheduled at 2025-11-04 22:00:00+08:00)
+2025-11-04 22:00:00,008 - scheduler - INFO - 准备启动 account.py，路径: /Users/gongdinghuan/PycharmProjects/AlphaNex/webapp/account.py
+2025-11-04 22:00:00,012 - scheduler - INFO - account.py 已启动，进程ID: 23870
+2025-11-04 22:00:00,013 - apscheduler.executors.default - INFO - Job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 22:10:00 CST)" executed successfully
+2025-11-04 22:02:00,584 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:07:00 CST)" (scheduled at 2025-11-04 22:02:00.577686+08:00)
+2025-11-04 22:02:00,584 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:07:00 CST)" executed successfully
+2025-11-04 22:07:00,580 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:12:00 CST)" (scheduled at 2025-11-04 22:07:00.577686+08:00)
+2025-11-04 22:07:00,581 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:12:00 CST)" executed successfully
+2025-11-04 22:10:00,008 - apscheduler.executors.default - INFO - Running job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 22:20:00 CST)" (scheduled at 2025-11-04 22:10:00+08:00)
+2025-11-04 22:10:00,009 - scheduler - INFO - 准备启动 account.py，路径: /Users/gongdinghuan/PycharmProjects/AlphaNex/webapp/account.py
+2025-11-04 22:10:00,013 - scheduler - INFO - account.py 已启动，进程ID: 25525
+2025-11-04 22:10:00,013 - apscheduler.executors.default - INFO - Job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 22:20:00 CST)" executed successfully
+2025-11-04 22:12:00,583 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:17:00 CST)" (scheduled at 2025-11-04 22:12:00.577686+08:00)
+2025-11-04 22:12:00,584 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:17:00 CST)" executed successfully
+2025-11-04 22:17:00,586 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:22:00 CST)" (scheduled at 2025-11-04 22:17:00.577686+08:00)
+2025-11-04 22:17:00,586 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:22:00 CST)" executed successfully
+2025-11-04 22:20:00,006 - apscheduler.executors.default - INFO - Running job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 22:30:00 CST)" (scheduled at 2025-11-04 22:20:00+08:00)
+2025-11-04 22:20:00,006 - scheduler - INFO - 准备启动 account.py，路径: /Users/gongdinghuan/PycharmProjects/AlphaNex/webapp/account.py
+2025-11-04 22:20:00,009 - scheduler - INFO - account.py 已启动，进程ID: 26900
+2025-11-04 22:20:00,009 - apscheduler.executors.default - INFO - Job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 22:30:00 CST)" executed successfully
+2025-11-04 22:22:00,583 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:27:00 CST)" (scheduled at 2025-11-04 22:22:00.577686+08:00)
+2025-11-04 22:22:00,583 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:27:00 CST)" executed successfully
+2025-11-04 22:27:00,585 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:32:00 CST)" (scheduled at 2025-11-04 22:27:00.577686+08:00)
+2025-11-04 22:27:00,586 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:32:00 CST)" executed successfully
+2025-11-04 22:30:00,007 - apscheduler.executors.default - INFO - Running job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 22:40:00 CST)" (scheduled at 2025-11-04 22:30:00+08:00)
+2025-11-04 22:30:00,008 - scheduler - INFO - 准备启动 account.py，路径: /Users/gongdinghuan/PycharmProjects/AlphaNex/webapp/account.py
+2025-11-04 22:30:00,012 - scheduler - INFO - account.py 已启动，进程ID: 28365
+2025-11-04 22:30:00,013 - apscheduler.executors.default - INFO - Job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 22:40:00 CST)" executed successfully
+2025-11-04 22:32:00,581 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:37:00 CST)" (scheduled at 2025-11-04 22:32:00.577686+08:00)
+2025-11-04 22:32:00,581 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:37:00 CST)" executed successfully
+2025-11-04 22:37:00,584 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:42:00 CST)" (scheduled at 2025-11-04 22:37:00.577686+08:00)
+2025-11-04 22:37:00,585 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:42:00 CST)" executed successfully
+2025-11-04 22:40:00,007 - apscheduler.executors.default - INFO - Running job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 22:50:00 CST)" (scheduled at 2025-11-04 22:40:00+08:00)
+2025-11-04 22:40:00,008 - scheduler - INFO - 准备启动 account.py，路径: /Users/gongdinghuan/PycharmProjects/AlphaNex/webapp/account.py
+2025-11-04 22:40:00,012 - scheduler - INFO - account.py 已启动，进程ID: 30751
+2025-11-04 22:40:00,013 - apscheduler.executors.default - INFO - Job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 22:50:00 CST)" executed successfully
+2025-11-04 22:42:00,579 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:47:00 CST)" (scheduled at 2025-11-04 22:42:00.577686+08:00)
+2025-11-04 22:42:00,579 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:47:00 CST)" executed successfully
+2025-11-04 22:47:00,582 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:52:00 CST)" (scheduled at 2025-11-04 22:47:00.577686+08:00)
+2025-11-04 22:47:00,583 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:52:00 CST)" executed successfully
+2025-11-04 22:50:00,004 - apscheduler.executors.default - INFO - Running job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 23:00:00 CST)" (scheduled at 2025-11-04 22:50:00+08:00)
+2025-11-04 22:50:00,004 - scheduler - INFO - 准备启动 account.py，路径: /Users/gongdinghuan/PycharmProjects/AlphaNex/webapp/account.py
+2025-11-04 22:50:00,008 - scheduler - INFO - account.py 已启动，进程ID: 34316
+2025-11-04 22:50:00,008 - apscheduler.executors.default - INFO - Job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 23:00:00 CST)" executed successfully
+2025-11-04 22:52:00,584 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:57:00 CST)" (scheduled at 2025-11-04 22:52:00.577686+08:00)
+2025-11-04 22:52:00,584 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 22:57:00 CST)" executed successfully
+2025-11-04 22:57:00,581 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:02:00 CST)" (scheduled at 2025-11-04 22:57:00.577686+08:00)
+2025-11-04 22:57:00,581 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:02:00 CST)" executed successfully
+2025-11-04 23:00:00,004 - apscheduler.executors.default - INFO - Running job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 23:10:00 CST)" (scheduled at 2025-11-04 23:00:00+08:00)
+2025-11-04 23:00:00,005 - scheduler - INFO - 准备启动 account.py，路径: /Users/gongdinghuan/PycharmProjects/AlphaNex/webapp/account.py
+2025-11-04 23:00:00,009 - scheduler - INFO - account.py 已启动，进程ID: 38823
+2025-11-04 23:00:00,010 - apscheduler.executors.default - INFO - Job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 23:10:00 CST)" executed successfully
+2025-11-04 23:02:00,584 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:07:00 CST)" (scheduled at 2025-11-04 23:02:00.577686+08:00)
+2025-11-04 23:02:00,584 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:07:00 CST)" executed successfully
+2025-11-04 23:05:00,003 - apscheduler.executors.default - INFO - Running job "启动股票监控 (trigger: cron[hour='23', minute='5'], next run at: 2025-11-05 23:05:00 CST)" (scheduled at 2025-11-04 23:05:00+08:00)
+2025-11-04 23:05:00,004 - scheduler - INFO - 准备启动 stock_monitor.py，路径: /Users/gongdinghuan/PycharmProjects/AlphaNex/stock_monitor.py
+2025-11-04 23:05:00,005 - scheduler - INFO - stock_monitor.py 已启动，进程ID: 40220
+2025-11-04 23:05:00,006 - apscheduler.executors.default - INFO - Job "启动股票监控 (trigger: cron[hour='23', minute='5'], next run at: 2025-11-05 23:05:00 CST)" executed successfully
+2025-11-04 23:07:00,584 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:12:00 CST)" (scheduled at 2025-11-04 23:07:00.577686+08:00)
+2025-11-04 23:07:00,585 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:12:00 CST)" executed successfully
+2025-11-04 23:10:00,006 - apscheduler.executors.default - INFO - Running job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 23:20:00 CST)" (scheduled at 2025-11-04 23:10:00+08:00)
+2025-11-04 23:10:00,007 - scheduler - INFO - 准备启动 account.py，路径: /Users/gongdinghuan/PycharmProjects/AlphaNex/webapp/account.py
+2025-11-04 23:10:00,010 - scheduler - INFO - account.py 已启动，进程ID: 40928
+2025-11-04 23:10:00,010 - apscheduler.executors.default - INFO - Job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 23:20:00 CST)" executed successfully
+2025-11-04 23:12:00,583 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:17:00 CST)" (scheduled at 2025-11-04 23:12:00.577686+08:00)
+2025-11-04 23:12:00,583 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:17:00 CST)" executed successfully
+2025-11-04 23:17:00,590 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:22:00 CST)" (scheduled at 2025-11-04 23:17:00.577686+08:00)
+2025-11-04 23:17:00,591 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:22:00 CST)" executed successfully
+2025-11-04 23:20:00,007 - apscheduler.executors.default - INFO - Running job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 23:30:00 CST)" (scheduled at 2025-11-04 23:20:00+08:00)
+2025-11-04 23:20:00,008 - scheduler - INFO - 准备启动 account.py，路径: /Users/gongdinghuan/PycharmProjects/AlphaNex/webapp/account.py
+2025-11-04 23:20:00,012 - scheduler - INFO - account.py 已启动，进程ID: 43620
+2025-11-04 23:20:00,012 - apscheduler.executors.default - INFO - Job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 23:30:00 CST)" executed successfully
+2025-11-04 23:22:00,579 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:27:00 CST)" (scheduled at 2025-11-04 23:22:00.577686+08:00)
+2025-11-04 23:22:00,580 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:27:00 CST)" executed successfully
+2025-11-04 23:27:00,578 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:32:00 CST)" (scheduled at 2025-11-04 23:27:00.577686+08:00)
+2025-11-04 23:27:00,579 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:32:00 CST)" executed successfully
+2025-11-04 23:30:00,005 - apscheduler.executors.default - INFO - Running job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 23:40:00 CST)" (scheduled at 2025-11-04 23:30:00+08:00)
+2025-11-04 23:30:00,006 - scheduler - INFO - 准备启动 account.py，路径: /Users/gongdinghuan/PycharmProjects/AlphaNex/webapp/account.py
+2025-11-04 23:30:00,010 - scheduler - INFO - account.py 已启动，进程ID: 45474
+2025-11-04 23:30:00,010 - apscheduler.executors.default - INFO - Job "启动账户数据更新(22:30-5:00每10分钟) (trigger: cron[hour='22-23,0-4', minute='30,40,50,0,10,20,30,40,50'], next run at: 2025-11-04 23:40:00 CST)" executed successfully
+2025-11-04 23:32:00,584 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:37:00 CST)" (scheduled at 2025-11-04 23:32:00.577686+08:00)
+2025-11-04 23:32:00,585 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:37:00 CST)" executed successfully
+2025-11-04 23:37:00,580 - apscheduler.executors.default - INFO - Running job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:42:00 CST)" (scheduled at 2025-11-04 23:37:00.577686+08:00)
+2025-11-04 23:37:00,581 - apscheduler.executors.default - INFO - Job "监控股票监控进程 (trigger: interval[0:05:00], next run at: 2025-11-04 23:42:00 CST)" executed successfully
