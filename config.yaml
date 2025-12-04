@@ -23,7 +23,10 @@ longport:
 deepseek:
   api_key: 
   api_url: "https://api.deepseek.com/v1/chat/completions"
-
+# Ollama API配置
+ollama:
+  api_url: "http://localhost:11434/api"  # Ollama本地API地址
+  model_name: "qwen3:4b"  # 使用的Ollama模型名称
 # 应用配置
 app:
   check_interval: 10  # 检查间隔（秒）
